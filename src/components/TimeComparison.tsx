@@ -2,8 +2,15 @@ import { timeTable } from '../constants/timeTable.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { format, isWeekend } from 'date-fns';
+import { useTimeZone } from '../utils/api/useTimeZone';
 
 export const TimeComparison = () => {
+  const { timeZoneData } = useTimeZone();
+
+  console.log(!!timeZoneData && timeZoneData.timezone_offset);
+
+  const timeZoneOffset = !!timeZoneData ? timeZoneData.timezone_offset : 0;
+
   const getTimeAvailabilityStyle = (h: number, substract?: number) => {
     const currentDate = new Date();
     substract ? currentDate.setHours(h + substract) : currentDate.setHours(h);
@@ -40,7 +47,7 @@ export const TimeComparison = () => {
 
   const calculateHours = (h: number, substract?: number) => {
     const currentDate = new Date();
-    substract ? currentDate.setHours(h + substract) : currentDate.setHours(h);
+    substract ? currentDate.setHours(h - substract) : currentDate.setHours(h);
     return format(new Date(currentDate), 'HH:00');
   };
 
@@ -100,11 +107,11 @@ export const TimeComparison = () => {
               </td>
               <td
                 style={{
-                  ...getTimeAvailabilityStyle(time.id + 5),
+                  ...getTimeAvailabilityStyle(time.id - timeZoneOffset),
                   width: '50%',
                 }}
               >
-                {calculateHours(time.hour, 5)}
+                {calculateHours(time.hour, timeZoneOffset)}
               </td>
             </tr>
           ))}
