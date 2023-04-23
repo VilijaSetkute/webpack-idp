@@ -1,0 +1,60 @@
+textarea {
+  border: 1px solid var(--readerTealDark);
+  border-radius: 5px;
+  width: 100%;
+  height: max-content;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+textarea:hover {
+  border: 2px solid var(--readerTealDark);
+  padding: 9px;
+}
+
+textarea:focus {
+  outline: none;
+  border: 2px solid var(--readerTealDark);
+  padding: 9px;
+}
+
+.button-wrapper {
+  text-align: end;
+}
+
+.button-wrapper > button {
+  background-color: var(--readerTealLight);
+  color: var(--white);
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+.button-wrapper > button:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 8px -8px rgba(40, 153, 159, 1);
+  transform: translateY(-1px);
+}
+
+.form-option-title {
+  font-size: var(--optionTitle);
+  font-weight: var(--weight700);
+}
+
+.form-option-subtitle {
+  font-weight: var(--weight700);
+}
+
+.form-options-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-spacing {
+  margin-right: 48px;
+}
+
+.button-spacing {
+  margin-right: 8px;
+}
