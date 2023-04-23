@@ -1,12 +1,14 @@
 import './styles.css';
-import { Header } from './components/Header';
-import { TimeComparison } from './components/TimeComparison';
+import { Header } from './components/header/Header';
+import { Footer } from './components/footer/Footer';
+import { Reader } from './components/reader/Reader';
 
 export const App = () => {
   return (
     <div className="App">
       <Header />
-      <TimeComparison />
+      <Reader />
+      <Footer />
     </div>
   );
 };
