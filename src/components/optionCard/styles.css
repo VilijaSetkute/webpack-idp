@@ -1,0 +1,44 @@
+.form-option-card {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid var(--readerTealDark);
+  border-radius: 5px;
+  height: fit-content;
+}
+
+.form-option-card-disabled {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid dimgray;
+  border-radius: 5px;
+  height: fit-content;
+  opacity: 0.7;
+}
+
+.form-option-card:hover {
+  cursor: pointer;
+  background-color: var(--readerTealDark);
+  color: var(--white);
+}
+
+.form-option-card:hover > .form-option-card-title {
+  color: var(--white);
+}
+
+.form-option-card-example {
+  margin-bottom: 5px;
+}
+
+.form-option-card-title {
+  text-transform: uppercase;
+  font-size: var(--optionCardTitle);
+  font-weight: var(--weight700);
+  color: var(--readerTealDark);
+}
+
+.form-option-card-title-disabled {
+  text-transform: uppercase;
+  font-size: var(--optionCardTitle);
+  font-weight: var(--weight700);
+  color: dimgray;
+}
