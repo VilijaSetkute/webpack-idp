@@ -1,0 +1,37 @@
+.font-resize {
+  padding: 5px 5px 5px 8px;
+  border: 1px solid var(--readerBlack);
+}
+
+.font-resize:hover {
+  background-color: rgba(0, 128, 128, 0.15);
+  cursor: pointer;
+}
+
+.font-resize:active {
+  background-color: rgba(0, 128, 128, 0.35);
+  cursor: pointer;
+}
+
+.font-resize:active > svg {
+  fill: var(--white);
+}
+
+.font-resize-left {
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.font-resize-mid {
+  border-right: none;
+}
+
+.font-resize-right {
+  border-radius: 0 5px 5px 0;
+}
+
+.output-title {
+  font-size: var(--optionTitle);
+  font-weight: var(--weight700);
+  margin: 32px 0;
+}
