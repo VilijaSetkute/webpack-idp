@@ -1,36 +1,36 @@
-.font-resize {
+.output_resizer {
   padding: 5px 5px 5px 8px;
-  border: 1px solid var(--readerBlack);
+  border-top: 1px solid var(--readerBlack);
+  border-bottom: 1px solid var(--readerBlack);
 }
 
-.font-resize:hover {
+.output_resizer:hover {
   background-color: rgba(0, 128, 128, 0.15);
   cursor: pointer;
 }
 
-.font-resize:active {
+.output_resizer:active {
   background-color: rgba(0, 128, 128, 0.35);
   cursor: pointer;
 }
 
-.font-resize:active > svg {
+.output_resizer:active > svg {
   fill: var(--white);
 }
 
-.font-resize-left {
-  border-right: none;
+.output_resizer--left {
   border-radius: 5px 0 0 5px;
+  border-left: 1px solid var(--readerBlack);
+  border-right: 1px solid var(--readerBlack);
 }
 
-.font-resize-mid {
-  border-right: none;
-}
-
-.font-resize-right {
+.output_resizer--right {
   border-radius: 0 5px 5px 0;
+  border-left: 1px solid var(--readerBlack);
+  border-right: 1px solid var(--readerBlack);
 }
 
-.output-title {
+.output__title {
   font-size: var(--optionTitle);
   font-weight: var(--weight700);
   margin: 32px 0;

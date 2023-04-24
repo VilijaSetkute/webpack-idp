@@ -1,4 +1,4 @@
-.form-option-card {
+.option-card {
   padding: 10px;
   margin-right: 10px;
   border: 1px solid var(--readerTealDark);
@@ -6,39 +6,23 @@
   height: fit-content;
 }
 
-.form-option-card-disabled {
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid dimgray;
-  border-radius: 5px;
-  height: fit-content;
-  opacity: 0.7;
-}
-
-.form-option-card:hover {
+.option-card:hover {
   cursor: pointer;
   background-color: var(--readerTealDark);
   color: var(--white);
 }
 
-.form-option-card:hover > .form-option-card-title {
+.option-card:hover > .option-card__title {
   color: var(--white);
 }
 
-.form-option-card-example {
+.option-card__example {
   margin-bottom: 5px;
 }
 
-.form-option-card-title {
+.option-card__title {
   text-transform: uppercase;
   font-size: var(--optionCardTitle);
   font-weight: var(--weight700);
   color: var(--readerTealDark);
-}
-
-.form-option-card-title-disabled {
-  text-transform: uppercase;
-  font-size: var(--optionCardTitle);
-  font-weight: var(--weight700);
-  color: dimgray;
 }

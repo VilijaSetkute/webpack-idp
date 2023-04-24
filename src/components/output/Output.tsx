@@ -29,25 +29,25 @@ export const Output: FC<Output> = ({ selectedOptions, text }) => {
 
   return (
     <div>
-      <div className="output-title">Text options</div>
+      <div className="output__title">Text options</div>
       <div className="flex-horizontal-end">
         <div>
           <img
-            className="font-resize font-resize-left"
+            className="output_resizer output_resizer--left"
             src={INCREASE}
             alt="Font increase"
             height={20}
             onClick={increaseFontSize}
           />
           <img
-            className="font-resize font-resize-mid"
+            className="output_resizer"
             src={DECREASE}
             alt="Font decrease"
             height={20}
             onClick={decreaseFontSize}
           />
           <img
-            className="font-resize font-resize-right"
+            className="output_resizer output_resizer--right"
             src={RESET}
             alt="Reset font change"
             height={20}
@@ -55,17 +55,9 @@ export const Output: FC<Output> = ({ selectedOptions, text }) => {
           />
         </div>
       </div>
-      <div
-        style={{
-          fontSize: textFontSize,
-          maxWidth: '900px',
-          wordBreak: 'break-all',
-          whiteSpace: 'normal',
-          overflowWrap: 'break-word',
-        }}
-      >
+      <div style={{ fontSize: textFontSize }}>
         {text.map((word, idx) => (
-          <span key={idx} className="word-wrap-disabled">
+          <span key={idx} className="inline-block">
             {applyReader(selectedOptions, word)}
           </span>
         ))}

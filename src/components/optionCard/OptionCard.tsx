@@ -48,12 +48,12 @@ export const OptionCard: FC<CardProps> = ({
   };
 
   return (
-    <div className="form-option-card">
-      <div className="form-option-card-example">
+    <div className="option-card">
+      <div className="option-card__example">
         {option === 'fixation' && formatFixationCard(fixation)}
         {option === 'contrast' && formatContrastCard(contrast)}
       </div>
-      <div className="form-option-card-title">{optionTitle}</div>
+      <div className="option-card__title">{optionTitle}</div>
     </div>
   );
 };

@@ -6,24 +6,12 @@ header {
   margin: 0 -1000% 24px -1000%;
 }
 
-.header-title {
-  margin-top: 16px;
-  font-size: var(--titleSizeStrong);
-  font-weight: var(--weight700);
-  color: var(--readerYellow);
-}
-
-.header-title--light {
-  font-weight: var(--weight100);
-  font-size: var(--titleSizeLight);
-}
-
 @media (max-width: 767px) {
   header {
     padding: 28px 0;
   }
 
-  .header-logo-image {
+  .header__logo {
     height: 100px;
   }
 }
@@ -33,7 +21,7 @@ header {
     padding: 24px 0;
   }
 
-  .header-logo-image {
+  .header__logo {
     height: 70px;
   }
 }

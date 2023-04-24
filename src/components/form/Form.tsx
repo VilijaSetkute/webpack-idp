@@ -30,23 +30,27 @@ export const Form: FC<FormProps> = ({
     }
   };
   return (
-    <div>
+    <div className="form">
       <div>
         <div>
-          <textarea ref={customTextRef} placeholder="Enter your custom text" />
+          <textarea
+            className="form__input--text"
+            ref={customTextRef}
+            placeholder="Enter your custom text"
+          />
 
-          <div className="button-wrapper">
-            <button className="button-spacing" onClick={updateText}>
+          <div className="form__input--buttons">
+            <button className="mr-8" onClick={updateText}>
               Update
             </button>
             <button onClick={resetDefaultText}>Reset</button>
           </div>
         </div>
       </div>
-      <div className="form-option-title">Bionic reader options</div>
-      <div className="form-options-group">
-        <div className="flex-spacing">
-          <p className="form-option-subtitle">Fixation: </p>
+      <div className="form__options--title">Bionic reader options</div>
+      <div className="form__options">
+        <div className="mr-48">
+          <p className="form__option--subtitle">Fixation: </p>
           <div className="center-vertical">
             <div onClick={() => updateOptions('fixation', 'none')}>
               <OptionCard
@@ -80,7 +84,7 @@ export const Form: FC<FormProps> = ({
 
         {isContrastEnabled && (
           <div>
-            <p className="form-option-subtitle">Contrast: </p>
+            <p className="form__options--subtitle">Contrast: </p>
             <div className="center-vertical">
               <div onClick={() => updateOptions('contrast', 'standard')}>
                 <OptionCard

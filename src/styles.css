@@ -44,6 +44,24 @@ body {
   }
 }
 
+.bionic-opacity {
+  opacity: var(--opacity70);
+}
+
+.bionic-highlight {
+  font-weight: var(--weight700);
+}
+
+/* || UTILITIES */
+
+.mr-8 {
+  margin-right: 8px;
+}
+
+.mr-48 {
+  margin-right: 48px;
+}
+
 .center-vertical {
   display: flex;
   align-items: center;
@@ -54,14 +72,6 @@ body {
   justify-content: flex-end;
 }
 
-.bionic-opacity {
-  opacity: var(--opacity70);
-}
-
-.bionic-highlight {
-  font-weight: var(--weight700);
-}
-
-.word-wrap-disabled {
+.inline-block {
   display: inline-block;
 }

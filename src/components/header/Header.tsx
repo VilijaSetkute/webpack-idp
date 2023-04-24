@@ -4,7 +4,7 @@ import './styles.css';
 export const Header = () => {
   return (
     <header>
-      <img className="header-logo-image" src={LOGO} alt="logo" />
+      <img className="header__logo" src={LOGO} alt="logo" />
     </header>
   );
 };
