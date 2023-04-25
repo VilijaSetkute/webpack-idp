@@ -15,7 +15,11 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          { loader: 'sass-loader', options: { includePaths: ['src/styles'] } },
+        ],
       },
       { test: /\.(?:png|jpg|jpeg)$/, type: 'asset/resource' },
       { test: /\.(woff(2)?|eot|ttf|otf|svg)$/, type: 'asset/inline' },
