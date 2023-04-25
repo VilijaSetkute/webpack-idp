@@ -1,5 +1,5 @@
 .form__input--text {
-  border: 1px solid var(--readerTealDark);
+  border: 1px solid $readerTealDark;
   border-radius: 5px;
   width: 100%;
   height: max-content;
@@ -9,13 +9,13 @@
 }
 
 .form__input--text:hover {
-  border: 2px solid var(--readerTealDark);
+  border: 2px solid $readerTealDark;
   padding: 9px;
 }
 
 .form__input--text:focus {
   outline: none;
-  border: 2px solid var(--readerTealDark);
+  border: 2px solid $readerTealDark;
   padding: 9px;
 }
 
@@ -24,8 +24,8 @@
 }
 
 .form__input--buttons > button {
-  background-color: var(--readerTealLight);
-  color: var(--white);
+  background-color: $readerTealLight;
+  color: $white;
   padding: 8px 12px;
   border: none;
   border-radius: 5px;
@@ -38,12 +38,12 @@
 }
 
 .form__options--title {
-  font-size: var(--optionTitle);
-  font-weight: var(--weight700);
+  font-size: $optionTitle;
+  font-weight: $weight700;
 }
 
 .form__options--subtitle {
-  font-weight: var(--weight700);
+  font-weight: $weight700;
 }
 
 .form__options {

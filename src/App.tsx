@@ -1,4 +1,4 @@
-import './styles.css';
+import './styles.scss';
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 import { Reader } from './components/reader/Reader';

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import './styles.css';
+import './styles.scss';
 import { CardProps } from '../../utils/models/model';
 import { exampleWord } from '../../constants/defaults';
 

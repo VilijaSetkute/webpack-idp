@@ -1,6 +1,6 @@
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import './styles.css';
+import './styles.scss';
 import { OptionCard } from '../optionCard';
 import { FC, useRef } from 'react';
 import { defaultOptions, defaultText } from '../../constants/defaults';

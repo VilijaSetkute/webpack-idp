@@ -1,7 +1,7 @@
 header {
   text-align: center;
-  background-color: var(--readerBlack);
-  color: var(--white);
+  background-color: $readerBlack;
+  color: $white;
   padding: 32px 0;
   margin: 0 -1000% 24px -1000%;
 }

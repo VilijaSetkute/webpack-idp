@@ -1,7 +1,7 @@
 footer {
   top: auto;
-  background-color: var(--readerBlack);
-  color: var(--white);
+  background-color: $readerBlack;
+  color: $white;
   padding: 50px;
   margin-top: auto;
   margin-left: -1000%;
@@ -10,5 +10,5 @@ footer {
 }
 
 footer a {
-  color: var(--white);
+  color: $white;
 }

@@ -1,9 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { MIN_FONT_SIZE, MAX_FONT_SIZE } from '../../constants/defaults';
 import INCREASE from '../../assets/FontIncrease.svg';
 import DECREASE from '../..//assets/FontDecrease.svg';
 import RESET from '../..//assets/ResetIcon.svg';
-import './styles.css';
+import './styles.scss';
 import { applyReader } from '../../utils/helpers/applyReader';
 import { DefaultOptions } from '../../utils/models/model';
 

@@ -1,7 +1,7 @@
 .option-card {
   padding: 10px;
   margin-right: 10px;
-  border: 1px solid var(--readerTealDark);
+  border: 1px solid $readerTealDark;
   border-radius: 5px;
   height: fit-content;
 }
@@ -9,18 +9,18 @@
 .option-card:hover,
 .option-card--selected {
   cursor: pointer;
-  background-color: var(--readerTealDark);
-  color: var(--white);
+  background-color: $readerTealDark;
+  color: $white;
   padding: 10px;
   margin-right: 10px;
-  border: 1px solid var(--readerTealDark);
+  border: 1px solid $readerTealDark;
   border-radius: 5px;
   height: fit-content;
 }
 
 .option-card:hover > .option-card__title,
 .option-card--selected > .option-card__title {
-  color: var(--white);
+  color: $white;
 }
 
 .option-card__example {
@@ -29,7 +29,7 @@
 
 .option-card__title {
   text-transform: uppercase;
-  font-size: var(--optionCardTitle);
-  font-weight: var(--weight700);
-  color: var(--readerTealDark);
+  font-size: $optionCardTitle;
+  font-weight: $weight700;
+  color: $readerTealDark;
 }
