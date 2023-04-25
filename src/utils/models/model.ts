@@ -8,10 +8,12 @@ export interface CardProps {
   optionTitle: string;
   fixation?: string;
   contrast?: string;
+  isSelected: boolean;
 }
 
 export interface FormProps {
   setText: React.Dispatch<React.SetStateAction<string>>;
   setSelectedOptions: React.Dispatch<React.SetStateAction<DefaultOptions>>;
   isContrastEnabled: boolean;
+  selectedOptions: DefaultOptions;
 }

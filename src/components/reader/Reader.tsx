@@ -29,6 +29,7 @@ export const Reader = () => {
         setText={setText}
         setSelectedOptions={setSelectedOptions}
         isContrastEnabled={isContrastEnabled}
+        selectedOptions={selectedOptions}
       />
       <Output selectedOptions={selectedOptions} text={stringToArray(text)} />
     </div>

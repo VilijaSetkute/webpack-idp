@@ -6,13 +6,20 @@
   height: fit-content;
 }
 
-.option-card:hover {
+.option-card:hover,
+.option-card--selected {
   cursor: pointer;
   background-color: var(--readerTealDark);
   color: var(--white);
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid var(--readerTealDark);
+  border-radius: 5px;
+  height: fit-content;
 }
 
-.option-card:hover > .option-card__title {
+.option-card:hover > .option-card__title,
+.option-card--selected > .option-card__title {
   color: var(--white);
 }
 

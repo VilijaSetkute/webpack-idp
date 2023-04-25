@@ -8,6 +8,7 @@ export const OptionCard: FC<CardProps> = ({
   optionTitle,
   fixation = 'none',
   contrast = 'standard',
+  isSelected,
 }) => {
   const evaluateFixation = (number: any) => {
     const splitList = [exampleWord.slice(0, number), exampleWord.slice(number)];
@@ -48,7 +49,7 @@ export const OptionCard: FC<CardProps> = ({
   };
 
   return (
-    <div className="option-card">
+    <div className={isSelected ? 'option-card--selected' : 'option-card'}>
       <div className="option-card__example">
         {option === 'fixation' && formatFixationCard(fixation)}
         {option === 'contrast' && formatContrastCard(contrast)}

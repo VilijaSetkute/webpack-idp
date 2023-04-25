@@ -10,6 +10,7 @@ export const Form: FC<FormProps> = ({
   setText,
   setSelectedOptions,
   isContrastEnabled,
+  selectedOptions,
 }) => {
   let customTextRef = useRef<HTMLTextAreaElement>(null);
   const updateText = () => {
@@ -29,6 +30,7 @@ export const Form: FC<FormProps> = ({
       setSelectedOptions((prev) => ({ ...prev, [key]: value }));
     }
   };
+
   return (
     <div className="form">
       <div>
@@ -57,11 +59,17 @@ export const Form: FC<FormProps> = ({
                 option="fixation"
                 optionTitle="none"
                 fixation="none"
+                isSelected={selectedOptions.fixation === 'none'}
               />
             </div>
 
             <div onClick={() => updateOptions('fixation', 'low')}>
-              <OptionCard option="fixation" optionTitle="low" fixation="low" />
+              <OptionCard
+                option="fixation"
+                optionTitle="low"
+                fixation="low"
+                isSelected={selectedOptions.fixation === 'low'}
+              />
             </div>
 
             <div onClick={() => updateOptions('fixation', 'standard')}>
@@ -69,6 +77,7 @@ export const Form: FC<FormProps> = ({
                 option="fixation"
                 optionTitle="standard"
                 fixation="standard"
+                isSelected={selectedOptions.fixation === 'standard'}
               />
             </div>
 
@@ -77,6 +86,7 @@ export const Form: FC<FormProps> = ({
                 option="fixation"
                 optionTitle="strong"
                 fixation="strong"
+                isSelected={selectedOptions.fixation === 'strong'}
               />
             </div>
           </div>
@@ -91,6 +101,7 @@ export const Form: FC<FormProps> = ({
                   option="contrast"
                   optionTitle="standard"
                   contrast="standard"
+                  isSelected={selectedOptions.contrast === 'standard'}
                 />
               </div>
               <div onClick={() => updateOptions('contrast', 'high')}>
@@ -98,6 +109,7 @@ export const Form: FC<FormProps> = ({
                   option="contrast"
                   optionTitle="high"
                   contrast="high"
+                  isSelected={selectedOptions.contrast === 'high'}
                 />
               </div>
               <div onClick={() => updateOptions('contrast', 'low')}>
@@ -105,6 +117,7 @@ export const Form: FC<FormProps> = ({
                   option="contrast"
                   optionTitle="low"
                   contrast="low"
+                  isSelected={selectedOptions.contrast === 'low'}
                 />
               </div>
             </div>
