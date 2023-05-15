@@ -1,5 +1,11 @@
 @import '../../styles.scss';
 
+%border-style {
+  border: 2px solid $readerTealDark;
+  padding: 9px;
+  outline: none;
+}
+
 .form__input--text {
   border: 1px solid $readerTealDark;
   border-radius: 5px;
@@ -8,35 +14,32 @@
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
-}
 
-.form__input--text:hover {
-  border: 2px solid $readerTealDark;
-  padding: 9px;
-}
+  &:hover {
+    @extend %border-style;
+  }
 
-.form__input--text:focus {
-  outline: none;
-  border: 2px solid $readerTealDark;
-  padding: 9px;
+  &:focus {
+    @extend %border-style;
+  }
 }
 
 .form__input--buttons {
   text-align: end;
-}
 
-.form__input--buttons > button {
-  background-color: $readerTealLight;
-  color: $white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-}
+  & button {
+    background-color: $readerTealLight;
+    color: $white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+  }
 
-.form__input--buttons > button:hover {
-  cursor: pointer;
-  box-shadow: 0 8px 8px -8px rgba(40, 153, 159, 1);
-  transform: translateY(-1px);
+  & button:hover {
+    cursor: pointer;
+    box-shadow: 0 8px 8px -8px rgba(40, 153, 159, 1);
+    transform: translateY(-1px);
+  }
 }
 
 .form__options--title {
