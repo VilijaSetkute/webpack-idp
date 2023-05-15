@@ -2,34 +2,25 @@
 
 .output_resizer {
   padding: 5px 5px 5px 8px;
+  margin-bottom: 15px;
   border-top: 1px solid $readerBlack;
   border-bottom: 1px solid $readerBlack;
-}
 
-.output_resizer:hover {
-  background-color: rgba(0, 128, 128, 0.15);
-  cursor: pointer;
-}
+  &:hover {
+    @include hover-effect(0.15);
+  }
 
-.output_resizer:active {
-  background-color: rgba(0, 128, 128, 0.35);
-  cursor: pointer;
-}
-
-.output_resizer:active > svg {
-  fill: $white;
+  &:active {
+    @include hover-effect(0.5);
+  }
 }
 
 .output_resizer--left {
-  border-radius: 5px 0 0 5px;
-  border-left: 1px solid $readerBlack;
-  border-right: 1px solid $readerBlack;
+  @include rezizer-borders(5, 0, 0, 5);
 }
 
 .output_resizer--right {
-  border-radius: 0 5px 5px 0;
-  border-left: 1px solid $readerBlack;
-  border-right: 1px solid $readerBlack;
+  @include rezizer-borders(0, 5, 5, 0);
 }
 
 .output__title {

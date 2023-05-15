@@ -1,0 +1,36 @@
+@import './colors';
+
+%activated {
+  cursor: pointer;
+  background-color: $readerTealDark;
+  color: $white;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid $readerTealDark;
+  border-radius: 5px;
+  height: fit-content;
+  .option-card__title {
+    color: $white;
+  }
+}
+
+@mixin card--hover() {
+  &:hover {
+    @extend %activated;
+  }
+}
+
+@mixin card--active() {
+  @extend %activated;
+}
+
+@mixin hover-effect($opacity) {
+  background-color: rgba(0, 128, 128, $opacity); // apply mixin
+  cursor: pointer;
+}
+
+@mixin rezizer-borders($top, $right, $botton, $left) {
+  border-left: 1px solid $readerBlack;
+  border-right: 1px solid $readerBlack;
+  border-radius: #{$top}px #{$right}px #{$botton}px #{$left}px;
+}

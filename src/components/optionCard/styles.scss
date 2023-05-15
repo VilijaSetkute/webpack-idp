@@ -1,37 +1,24 @@
 @import '../../styles.scss';
 
+.option-card__title {
+  text-transform: uppercase;
+  font-size: $optionCardTitle;
+  font-weight: $weight700;
+  color: $readerTealDark;
+}
 .option-card {
   padding: 10px;
   margin-right: 10px;
   border: 1px solid $readerTealDark;
   border-radius: 5px;
   height: fit-content;
+  @include card--hover();
 }
 
-.option-card:hover,
 .option-card--selected {
-  cursor: pointer;
-  background-color: $readerTealDark;
-  color: $white;
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid $readerTealDark;
-  border-radius: 5px;
-  height: fit-content;
-}
-
-.option-card:hover > .option-card__title,
-.option-card--selected > .option-card__title {
-  color: $white;
+  @include card--active();
 }
 
 .option-card__example {
   margin-bottom: 5px;
-}
-
-.option-card__title {
-  text-transform: uppercase;
-  font-size: $optionCardTitle;
-  font-weight: $weight700;
-  color: $readerTealDark;
 }
