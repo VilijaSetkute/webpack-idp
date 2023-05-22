@@ -1,4 +1,4 @@
-import { DefaultOptions } from '../models/model';
+import { BionicItem, BionicItemForm } from '../models/model';
 
 const getSplitPosition = (
   word: string,
@@ -20,9 +20,16 @@ const getSplitPosition = (
   }
 };
 
-export const applyReader = (selectedOptions: DefaultOptions, word: string) => {
+export const applyReader = (
+  selectedOptions: BionicItem | BionicItemForm,
+  word: string
+) => {
   const isLongWord = word.length > 4;
-  const charPos = getSplitPosition(word, selectedOptions.fixation, isLongWord);
+  const charPos = getSplitPosition(
+    word,
+    selectedOptions.fixation as string,
+    isLongWord
+  );
 
   const splitWord = [word.slice(0, charPos), word.slice(charPos)];
 
