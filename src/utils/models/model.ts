@@ -1,6 +1,10 @@
 export interface DefaultOptions {
-  fixation: string;
-  contrast: string;
+  id: string;
+  date: string;
+  fixation?: string;
+  contrast?: string;
+  fontSize?: number;
+  text: string[];
 }
 
 export interface CardProps {
@@ -11,9 +15,20 @@ export interface CardProps {
   isSelected: boolean;
 }
 
-export interface FormProps {
-  setText: React.Dispatch<React.SetStateAction<string>>;
-  setSelectedOptions: React.Dispatch<React.SetStateAction<DefaultOptions>>;
-  isContrastEnabled: boolean;
-  selectedOptions: DefaultOptions;
+export interface BionicItem {
+  id: string;
+  date: string;
+  fixation?: string;
+  contrast?: string;
+  fontSize?: number;
+  text: string[];
 }
+
+// export interface BionicItemForm {
+//   fixation: string;
+//   contrast: string;
+//   fontSize: number;
+//   text: string;
+// }
+
+export type BionicItemForm = Omit<BionicItem, 'id' | 'date'>;
