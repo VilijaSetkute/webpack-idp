@@ -1,0 +1,49 @@
+.icon {
+  margin-right: 8px;
+  cursor: pointer;
+  color: grey;
+
+  &.icon-view:hover {
+    color: teal;
+  }
+
+  &.icon-edit:hover {
+    color: teal;
+  }
+
+  &.icon-delete:hover {
+    color: rgb(208, 82, 60);
+  }
+}
+
+.sample {
+  border: 3px dashed rgb(208, 82, 60);
+  color: rgb(208, 82, 60);
+  font-weight: bold;
+  margin-right: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transform: rotate(-5deg);
+}
+
+.reader-card-container {
+  border: 1px solid gray;
+  padding: 16px;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.mr-16 {
+  margin-right: 16px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.options-spacing {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,33 @@
+@import '../../../colors';
+
+%primary {
+  background-color: $readerTealDark;
+  color: $white;
+}
+
+%secondary {
+  background-color: $readerYellow;
+  color: initial;
+}
+
+%contentWidth {
+  width: fit-content;
+}
+
+%componentWidth {
+  width: 100%;
+}
+
+.custom-button {
+  padding: 8px 12px;
+  margin: 16px 0;
+  @extend %primary, %contentWidth;
+
+  &.secondary {
+    @extend %secondary;
+  }
+
+  &.component {
+    @extend %componentWidth;
+  }
+}

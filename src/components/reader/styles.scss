@@ -5,3 +5,35 @@
   margin: 0 auto;
   min-height: calc(100vh - 361px);
 }
+
+.reader-intro {
+  margin-bottom: 16px;
+  h3 {
+    text-align: center;
+  }
+
+  & button {
+    background-color: $readerTealLight;
+    color: $white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  & button:hover {
+    background-color: $readerTealDark;
+  }
+}
+
+.reader__button {
+  width: 100%;
+  margin-top: 16px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.reader--subtitle {
+  text-align: center;
+  margin: 16px 0;
+}
