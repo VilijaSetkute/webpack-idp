@@ -12,13 +12,7 @@ export interface BionicItem {
   fixation: string;
   contrast: string;
   fontSize: number;
-  text: string[];
+  text: string;
 }
 
-export type BionicItemForm = Omit<BionicItem, 'id' | 'date' | 'text'> & {
-  text: string;
-};
-
-export type OutputItem = Omit<BionicItem, 'id' | 'date' | 'text'> & {
-  text: string | string[];
-};
+export type BionicItemForm = Omit<BionicItem, 'id' | 'date'>;

@@ -4,7 +4,6 @@ import { useContext, useState } from 'react';
 import { DataContext } from '../context/dataContext';
 import format from 'date-fns/format';
 import { defaultOptions } from '../../constants/defaults';
-import { stringToArray } from '../helpers/stringToArray';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
@@ -59,14 +58,13 @@ export const useCreateForm = (
     fontSize: formFontSize,
     text: formtext,
   }: BionicItemForm) => {
-    const wordArray = stringToArray(formtext);
     const data: BionicItem = {
       id: `id${Math.random() * 1000000000000000000}`,
       date: `${format(new Date(), 'yyyy-MM-dd hh:mm:ss')}`,
       fixation: formFixation,
       contrast: formContrast,
       fontSize: formFontSize,
-      text: wordArray,
+      text: formtext,
     };
     setBionicList((prevData) => [...prevData, data]);
     onClose(false);

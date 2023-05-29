@@ -27,13 +27,7 @@ export const optionSelections = {
   size: fonts,
 };
 
-export const defaultBionicText2: string[] = [
-  'this',
-  'is',
-  'a',
-  'sample',
-  'text',
-];
+export const defaultBionicText2: string = 'this is a sample text.';
 
 export const initialCard = {
   id: 'sample',

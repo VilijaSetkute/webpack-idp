@@ -1,21 +1,15 @@
 import { FC } from 'react';
 import './styles.scss';
 import { applyReader } from '../../utils/helpers/applyReader';
-import {
-  BionicItem,
-  BionicItemForm,
-  OutputItem,
-} from '../../utils/models/model';
+import { BionicItemForm } from '../../utils/models/model';
 import { stringToArray } from '../../utils/helpers/stringToArray';
 
 interface Output {
-  selectedOptions: OutputItem;
+  selectedOptions: BionicItemForm;
 }
 
 export const Output: FC<Output> = ({ selectedOptions }) => {
-  const wordArray = Array.isArray(selectedOptions.text)
-    ? selectedOptions.text
-    : stringToArray(selectedOptions.text);
+  const wordArray = stringToArray(selectedOptions.text);
   return (
     <div
       className="output__spacing"
