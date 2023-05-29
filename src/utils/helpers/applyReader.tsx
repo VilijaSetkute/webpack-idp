@@ -1,4 +1,4 @@
-import { BionicItem, BionicItemForm } from '../models/model';
+import { BionicItem, BionicItemForm, OutputItem } from '../models/model';
 
 const getSplitPosition = (
   word: string,
@@ -20,10 +20,7 @@ const getSplitPosition = (
   }
 };
 
-export const applyReader = (
-  selectedOptions: BionicItem | BionicItemForm,
-  word: string
-) => {
+export const applyReader = (selectedOptions: OutputItem, word: string) => {
   const isLongWord = word.length > 4;
   const charPos = getSplitPosition(
     word,

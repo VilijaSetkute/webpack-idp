@@ -1,12 +1,3 @@
-export interface DefaultOptions {
-  id: string;
-  date: string;
-  fixation?: string;
-  contrast?: string;
-  fontSize?: number;
-  text: string[];
-}
-
 export interface CardProps {
   option: string;
   optionTitle: string;
@@ -18,17 +9,16 @@ export interface CardProps {
 export interface BionicItem {
   id: string;
   date: string;
-  fixation?: string;
-  contrast?: string;
-  fontSize?: number;
+  fixation: string;
+  contrast: string;
+  fontSize: number;
   text: string[];
 }
 
-// export interface BionicItemForm {
-//   fixation: string;
-//   contrast: string;
-//   fontSize: number;
-//   text: string;
-// }
+export type BionicItemForm = Omit<BionicItem, 'id' | 'date' | 'text'> & {
+  text: string;
+};
 
-export type BionicItemForm = Omit<BionicItem, 'id' | 'date'>;
+export type OutputItem = Omit<BionicItem, 'id' | 'date' | 'text'> & {
+  text: string | string[];
+};

@@ -36,7 +36,7 @@ export const Reader = () => {
         </div>
         {showFormModal && (
           <Dialog onClose={() => setShowFormModal(false)}>
-            <Form />
+            <Form onClose={setShowFormModal} />
           </Dialog>
         )}
       </div>

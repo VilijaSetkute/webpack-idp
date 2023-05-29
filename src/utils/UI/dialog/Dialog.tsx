@@ -1,5 +1,6 @@
 import { FC, useEffect, useRef } from 'react';
 import './styles.scss';
+import React from 'react';
 
 interface ModalProps {
   onClose: () => void;
@@ -27,7 +28,9 @@ export const Dialog: FC<ModalProps> = ({ onClose, children }) => {
 
   return (
     <div className="modal-container" ref={modalRef}>
-      {children}
+      {React.Children.map(children, (child) =>
+        React.cloneElement(child as React.ReactElement, { onClose })
+      )}
     </div>
   );
 };

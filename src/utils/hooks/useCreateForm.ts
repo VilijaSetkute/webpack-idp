@@ -1,38 +1,85 @@
 import { useForm } from 'react-hook-form';
-import { BionicItem } from '../models/model';
-import { useContext } from 'react';
+import { BionicItem, BionicItemForm } from '../models/model';
+import { useContext, useState } from 'react';
 import { DataContext } from '../context/dataContext';
 import format from 'date-fns/format';
+import { defaultOptions } from '../../constants/defaults';
+import { stringToArray } from '../helpers/stringToArray';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
-export const useCreateForm = () => {
+const fixationValidator = yup
+  .string()
+  .test(
+    'selected',
+    'Please choose fixation option',
+    (value) => value !== 'none'
+  )
+  .required();
+
+const formValidator = yup
+  .object()
+  .shape({
+    fixation: fixationValidator,
+    contrast: yup.string().required(),
+    fontSize: yup.number().required(),
+    text: yup.string().required('Please provide your text'),
+  })
+  .required();
+
+export const useCreateForm = (
+  onClose: React.Dispatch<React.SetStateAction<boolean>>
+) => {
   const { setBionicList } = useContext(DataContext);
-  const methods = useForm<BionicItem>({
+  const [selectedOptions, setSelectedOptions] =
+    useState<BionicItemForm>(defaultOptions);
+
+  const methods = useForm<BionicItemForm>({
     defaultValues: {
-      id: '',
-      date: '',
       fixation: 'none',
       contrast: 'standard',
-      fontSize: 16,
-      text: [],
+      fontSize: 14,
+      text: '',
     },
+    resolver: yupResolver(formValidator),
+    mode: 'all',
+    shouldFocusError: true,
+    shouldUnregister: false,
   });
 
-  const fixation = methods.watch('fixation');
-  const contrast = methods.watch('contrast');
-  const fontSize = methods.watch('fontSize');
-  const text = methods.watch('text');
+  const formtext = methods.watch('text');
+  const formFixation = methods.watch('fixation');
+  const formContrast = methods.watch('contrast');
+  const formFontSize = methods.watch('fontSize');
+  console.log(methods.formState.errors);
 
-  const submit = () => {
-    const data = {
-      id: `${Math.random() * 1000000000000000}`,
-      date: format(new Date(), 'yyyy-MM-dd'),
-      fixation,
-      contrast,
-      fontSize,
-      text,
+  const submit = ({
+    fixation: formFixation,
+    contrast: formContrast,
+    fontSize: formFontSize,
+    text: formtext,
+  }: BionicItemForm) => {
+    const wordArray = stringToArray(formtext);
+    const data: BionicItem = {
+      id: `id${Math.random() * 1000000000000000000}`,
+      date: `${format(new Date(), 'yyyy-MM-dd hh:mm:ss')}`,
+      fixation: formFixation,
+      contrast: formContrast,
+      fontSize: formFontSize,
+      text: wordArray,
     };
     setBionicList((prevData) => [...prevData, data]);
+    onClose(false);
   };
 
-  return { methods, submit };
+  return {
+    submit,
+    selectedOptions,
+    setSelectedOptions,
+    methods,
+    formtext,
+    formFixation,
+    formContrast,
+    formFontSize,
+  };
 };

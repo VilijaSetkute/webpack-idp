@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .icon {
   margin-right: 8px;
   cursor: pointer;
@@ -12,13 +14,13 @@
   }
 
   &.icon-delete:hover {
-    color: rgb(208, 82, 60);
+    color: $readerRed;
   }
 }
 
 .sample {
-  border: 3px dashed rgb(208, 82, 60);
-  color: rgb(208, 82, 60);
+  border: 3px dashed $readerRed;
+  color: $readerRed;
   font-weight: bold;
   margin-right: 8px;
   padding: 4px 8px;
@@ -42,8 +44,15 @@
 }
 
 .options-spacing {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.reader-card--date {
+  margin-left: 4px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: $readerGray;
 }
