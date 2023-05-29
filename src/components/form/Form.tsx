@@ -2,8 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import './styles.scss';
 import { OptionCard } from '../optionCard';
-import { FC, useEffect, useRef, useState } from 'react';
-import { defaultOptions } from '../../constants/defaults';
+import { FC } from 'react';
 import { optionSelections } from '../../constants/defaults';
 import {
   MIN_FONT_SIZE,
