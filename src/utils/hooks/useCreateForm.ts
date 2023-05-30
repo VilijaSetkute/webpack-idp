@@ -27,18 +27,22 @@ const formValidator = yup
   .required();
 
 export const useCreateForm = (
-  onClose: React.Dispatch<React.SetStateAction<boolean>>
+  onClose: React.Dispatch<React.SetStateAction<boolean>>,
+  id: string | null
 ) => {
   const { setBionicList } = useContext(DataContext);
   const [selectedOptions, setSelectedOptions] =
     useState<BionicItemForm>(defaultOptions);
+  const { bionicList } = useContext(DataContext);
+
+  const editItem = bionicList.filter((bionic) => bionic.id === id);
 
   const methods = useForm<BionicItemForm>({
     defaultValues: {
-      fixation: 'none',
-      contrast: 'standard',
-      fontSize: 14,
-      text: '',
+      fixation: !!id ? editItem[0].fixation : 'none',
+      contrast: !!id ? editItem[0].contrast : 'standard',
+      fontSize: !!id ? editItem[0].fontSize : 14,
+      text: !!id ? editItem[0].text : '',
     },
     resolver: yupResolver(formValidator),
     mode: 'all',
@@ -50,7 +54,22 @@ export const useCreateForm = (
   const formFixation = methods.watch('fixation');
   const formContrast = methods.watch('contrast');
   const formFontSize = methods.watch('fontSize');
-  console.log(methods.formState.errors);
+
+  function addOrUpdateData(data: BionicItem) {
+    setBionicList((prevData) => {
+      if (!!id) {
+        const updatedList = prevData.map((item) => {
+          if (item.id === data.id) {
+            return { ...item, ...data };
+          }
+          return item;
+        });
+        return updatedList;
+      } else {
+        return [...prevData, data];
+      }
+    });
+  }
 
   const submit = ({
     fixation: formFixation,
@@ -59,14 +78,14 @@ export const useCreateForm = (
     text: formtext,
   }: BionicItemForm) => {
     const data: BionicItem = {
-      id: `id${Math.random() * 1000000000000000000}`,
+      id: !!id ? id : `id${Math.random() * 1000000000000000000}`,
       date: `${format(new Date(), 'yyyy-MM-dd hh:mm:ss')}`,
       fixation: formFixation,
       contrast: formContrast,
       fontSize: formFontSize,
       text: formtext,
     };
-    setBionicList((prevData) => [...prevData, data]);
+    addOrUpdateData(data);
     onClose(false);
   };
 
