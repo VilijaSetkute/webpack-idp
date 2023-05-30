@@ -11,10 +11,6 @@ import { BionicItem } from './utils/models/model';
 export const App = () => {
   const [bionicList, setBionicList] = useState<BionicItem[]>([initialCard]);
 
-  useEffect(() => {
-    console.log(bionicList);
-  }, [bionicList]);
-
   return (
     <DataContext.Provider value={{ bionicList, setBionicList }}>
       <div className="App">
