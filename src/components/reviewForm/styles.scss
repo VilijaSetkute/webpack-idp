@@ -1,0 +1,12 @@
+@import '../../styles.scss';
+
+.review {
+  min-height: 25vh;
+}
+
+.selection-spacing {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  //   justify-content: space-between;
+}
