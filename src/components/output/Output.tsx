@@ -6,10 +6,29 @@ import { stringToArray } from '../../utils/helpers/stringToArray';
 
 interface Output {
   selectedOptions: BionicItemForm;
+  textLength: 'full' | 'truncated';
+  maxChars?: number;
 }
 
-export const Output: FC<Output> = ({ selectedOptions }) => {
-  const wordArray = stringToArray(selectedOptions.text);
+export const Output: FC<Output> = ({
+  selectedOptions,
+  textLength,
+  maxChars,
+}) => {
+  const fullArray = stringToArray(selectedOptions.text);
+  const maxWords = maxChars || selectedOptions.text.length;
+  let wordCount = 0;
+  const truncatedArray = [];
+
+  for (const word of fullArray) {
+    if (wordCount + word.length <= maxWords) {
+      truncatedArray.push(word);
+      wordCount += word.length;
+    }
+  }
+
+  const wordArray = textLength === 'full' ? fullArray : truncatedArray;
+
   return (
     <div
       className="output__spacing"
@@ -20,6 +39,7 @@ export const Output: FC<Output> = ({ selectedOptions }) => {
           {applyReader(selectedOptions, word)}
         </span>
       ))}
+      {textLength === 'truncated' && <span>...</span>}
     </div>
   );
 };
