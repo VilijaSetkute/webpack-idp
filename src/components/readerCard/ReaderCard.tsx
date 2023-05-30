@@ -9,10 +9,28 @@ import { Output } from '../output';
 
 interface CardProps {
   listItem: BionicItem;
+  onSelect: React.Dispatch<React.SetStateAction<string | null>>;
+  onOpenEdit: React.Dispatch<React.SetStateAction<boolean>>;
+  onOpenReview: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const ReaderCard: FC<CardProps> = ({ listItem }) => {
+export const ReaderCard: FC<CardProps> = ({
+  listItem,
+  onSelect,
+  onOpenEdit,
+  onOpenReview,
+}) => {
   const { bionicList, setBionicList } = useContext(DataContext);
+
+  const onEdit = () => {
+    onSelect(listItem.id);
+    onOpenEdit(true);
+  };
+
+  const onReview = () => {
+    onSelect(listItem.id);
+    onOpenReview(true);
+  };
 
   const onDelete = (id: string) => {
     const findId = bionicList.filter((el) => el.id !== id);
@@ -39,13 +57,13 @@ export const ReaderCard: FC<CardProps> = ({ listItem }) => {
             icon={faEye}
             size="lg"
             className="icon icon-view"
-            onClick={() => console.log('view')}
+            onClick={() => onReview()}
           />
           <FontAwesomeIcon
             icon={faPen}
             size="lg"
             className="icon icon-edit"
-            onClick={() => console.log('edit')}
+            onClick={() => onEdit()}
           />
           <FontAwesomeIcon
             icon={faTrashCan}
@@ -63,6 +81,8 @@ export const ReaderCard: FC<CardProps> = ({ listItem }) => {
           fontSize: listItem.fontSize || 16,
           text: listItem.text,
         }}
+        textLength="truncated"
+        maxChars={150}
       />
     </div>
   );
