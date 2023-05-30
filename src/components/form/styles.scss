@@ -11,13 +11,12 @@
   border: 1px solid $readerTealDark;
   border-radius: 5px;
   width: 100%;
-  height: max-content;
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   font-size: 16px;
   resize: vertical;
-  min-height: 100px;
+  min-height: 150px;
   margin-bottom: 16px;
 
   &:hover {

@@ -15,10 +15,11 @@ import { useCreateForm } from '../../utils/hooks/useCreateForm';
 import { Controller } from 'react-hook-form';
 
 interface FormProps {
+  id: string | null;
   onClose: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Form: FC<FormProps> = ({ onClose }) => {
+export const Form: FC<FormProps> = ({ id, onClose }) => {
   const {
     submit,
     methods,
@@ -26,7 +27,7 @@ export const Form: FC<FormProps> = ({ onClose }) => {
     formFixation,
     formContrast,
     formFontSize,
-  } = useCreateForm(onClose);
+  } = useCreateForm(onClose, id);
   const errors = methods.formState.errors;
 
   const updateOptions = (key: 'fixation' | 'contrast', value: string) => {
@@ -137,6 +138,8 @@ export const Form: FC<FormProps> = ({ onClose }) => {
               fontSize: formFontSize,
               text: formtext,
             }}
+            textLength="full"
+            maxChars={200}
           />
         </div>
       ) : (
