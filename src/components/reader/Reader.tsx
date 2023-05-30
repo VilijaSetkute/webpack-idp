@@ -5,14 +5,38 @@ import { DataContext } from '../../utils/context/dataContext';
 import { ReaderCard } from '../readerCard/ReaderCard';
 import { Button } from '../../utils/UI/button';
 import { Form } from '../form';
+import { ReviewForm } from '../reviewForm';
 
 export const Reader = () => {
   const [showFormModal, setShowFormModal] = useState<boolean>(false);
+  const [showReviewModal, setShowReviewModal] = useState<boolean>(false);
+  const [formId, setFormId] = useState<string | null>(null);
   const { bionicList } = useContext(DataContext);
+
+  const onClose = () => {
+    showFormModal && setShowFormModal(false);
+    showReviewModal && setShowReviewModal(false);
+    setFormId(null);
+  };
+
+  const onEdit = (id: string) => {
+    setFormId(id);
+    setShowFormModal(true);
+    setShowReviewModal(false);
+  };
 
   return (
     <div className="reader-container">
       <div className="reader-intro">
+        <div> to do list</div>
+        <div>
+          <div>
+            <input type="checkbox" /> mobile responsive
+          </div>
+          <div>
+            <input type="checkbox" /> clean code
+          </div>
+        </div>
         <h3>What is bionic reading</h3>
         <div>
           In a digital world dominated by shallow forms of reading, Bionic
@@ -31,12 +55,23 @@ export const Reader = () => {
         <div>
           <h3 className="reader--subtitle">Saved bionic reading</h3>
           {bionicList.map((el) => (
-            <ReaderCard key={el.id} listItem={el} />
+            <ReaderCard
+              key={el.id}
+              listItem={el}
+              onSelect={setFormId}
+              onOpenEdit={setShowFormModal}
+              onOpenReview={setShowReviewModal}
+            />
           ))}
         </div>
         {showFormModal && (
-          <Dialog onClose={() => setShowFormModal(false)}>
-            <Form onClose={setShowFormModal} />
+          <Dialog onClose={onClose}>
+            <Form onClose={onClose} id={formId} />
+          </Dialog>
+        )}
+        {showReviewModal && (
+          <Dialog onClose={onClose}>
+            <ReviewForm id={formId} onEdit={onEdit} />
           </Dialog>
         )}
       </div>
