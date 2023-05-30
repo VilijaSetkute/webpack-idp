@@ -28,15 +28,6 @@ export const Reader = () => {
   return (
     <div className="reader-container">
       <div className="reader-intro">
-        <div> to do list</div>
-        <div>
-          <div>
-            <input type="checkbox" /> mobile responsive
-          </div>
-          <div>
-            <input type="checkbox" /> clean code
-          </div>
-        </div>
         <h3>What is bionic reading</h3>
         <div>
           In a digital world dominated by shallow forms of reading, Bionic
