@@ -27,13 +27,11 @@ export const optionSelections = {
   size: fonts,
 };
 
-export const defaultBionicText2: string = 'this is a sample text.';
-
 export const initialCard = {
   id: 'sample',
   date: '2023-05-26 09:46:28',
   fixation: 'standard',
   contrast: 'standard',
   fontSize: 20,
-  text: defaultBionicText2,
+  text: defaultText,
 };
