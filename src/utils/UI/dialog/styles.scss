@@ -23,6 +23,12 @@
   }
 }
 
+@media (max-width: 479px) {
+  .modal-container {
+    padding: 24px;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 4px;

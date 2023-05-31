@@ -70,3 +70,10 @@ body {
 .mt-16 {
   margin-top: 16px;
 }
+
+@media (max-width: 479px) {
+  .center-vertical {
+    flex-direction: column;
+    align-items: start;
+  }
+}
