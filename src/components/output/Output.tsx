@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import './styles.scss';
-import { applyReader } from '../../utils/helpers/applyReader';
+import { applyReader } from '../../utils/functions/applyReader';
 import { BionicItemForm } from '../../utils/models/model';
-import { stringToArray } from '../../utils/helpers/stringToArray';
+import { stringToArray } from '../../utils/functions/stringToArray';
 
 interface Output {
   selectedOptions: BionicItemForm;

@@ -1,17 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import './styles.scss';
-import { OptionCard } from '../optionCard';
+import { OptionCard } from '../../optionCard';
 import { FC } from 'react';
-import { optionSelections } from '../../constants/defaults';
+import { optionSelections } from '../../../utils/constants/defaults';
 import {
   MIN_FONT_SIZE,
   MAX_FONT_SIZE,
   FONT_STEP,
-} from '../../constants/defaults';
-import { Output } from '../output';
-import { Button } from '../../utils/UI/button';
-import { useCreateForm } from '../../utils/hooks/useCreateForm';
+} from '../../../utils/constants/defaults';
+import { Output } from '../../output';
+import { Button } from '../../reusable/button';
+import { useCreateForm } from '../../../utils/hooks/useCreateForm';
 import { Controller } from 'react-hook-form';
 
 interface FormProps {

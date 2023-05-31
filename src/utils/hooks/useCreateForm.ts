@@ -3,7 +3,7 @@ import { BionicItem, BionicItemForm } from '../models/model';
 import { useContext, useState } from 'react';
 import { DataContext } from '../context/dataContext';
 import format from 'date-fns/format';
-import { defaultOptions } from '../../constants/defaults';
+import { defaultOptions } from '../constants/defaults';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 

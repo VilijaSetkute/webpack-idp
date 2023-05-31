@@ -1,4 +1,4 @@
-import { generateFontSizes } from '../utils/helpers/fontArrGen';
+import { generateFontSizes } from '../functions/fontArrGen';
 
 export const exampleWord = 'Bionic';
 export const defaultText =

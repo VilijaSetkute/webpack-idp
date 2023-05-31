@@ -1,10 +1,11 @@
 import './styles.scss';
 import { FC, useContext } from 'react';
-import { Output } from '../output';
-import { DataContext } from '../../utils/context/dataContext';
-import { Chip } from '../../utils/UI/chip';
+import { Output } from '../../output';
+import { DataContext } from '../../../utils/context/dataContext';
+import { Chip } from '../../reusable/chip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
 interface ReviewFormProps {
   id: string | null;

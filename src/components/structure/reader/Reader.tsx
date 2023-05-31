@@ -1,11 +1,11 @@
 import './styles.scss';
 import { useContext, useState } from 'react';
-import { Dialog } from '../../utils/UI/dialog';
-import { DataContext } from '../../utils/context/dataContext';
-import { ReaderCard } from '../readerCard/ReaderCard';
-import { Button } from '../../utils/UI/button';
-import { Form } from '../form';
-import { ReviewForm } from '../reviewForm';
+import { Dialog } from '../../reusable/dialog';
+import { DataContext } from '../../../utils/context/dataContext';
+import { ReaderCard } from '../../readerCard/ReaderCard';
+import { Button } from '../../reusable/button';
+import { Form } from '../../modals/form';
+import { ReviewForm } from '../../modals/reviewForm';
 
 export const Reader = () => {
   const [showFormModal, setShowFormModal] = useState<boolean>(false);

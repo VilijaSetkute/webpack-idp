@@ -1,7 +1,7 @@
 import './styles.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faEye, faPen } from '@fortawesome/free-solid-svg-icons';
-import { Chip } from '../../utils/UI/chip';
+import { Chip } from '../reusable/chip';
 import { FC, useContext } from 'react';
 import { DataContext } from '../../utils/context/dataContext';
 import { BionicItem } from '../../utils/models/model';
