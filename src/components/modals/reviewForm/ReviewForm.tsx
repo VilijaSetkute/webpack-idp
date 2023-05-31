@@ -49,6 +49,7 @@ export const ReviewForm: FC<ReviewFormProps> = ({ id, onEdit, onClose }) => {
           />
         </div>
       </div>
+      <div className="reader-card--date">{editItem[0].date}</div>
       <Output
         selectedOptions={{
           fixation: editItem[0].fixation,
