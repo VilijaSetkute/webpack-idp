@@ -5,7 +5,6 @@ import { DataContext } from '../../../utils/context/dataContext';
 import { Chip } from '../../reusable/chip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
 
 interface ReviewFormProps {
   id: string | null;

@@ -2,7 +2,7 @@ import './styles.scss';
 import { useContext, useState } from 'react';
 import { Dialog } from '../../reusable/dialog';
 import { DataContext } from '../../../utils/context/dataContext';
-import { ReaderCard } from '../../readerCard/ReaderCard';
+import { ReaderCard } from '../../cards/readerCard/ReaderCard';
 import { Button } from '../../reusable/button';
 import { Form } from '../../modals/form';
 import { ReviewForm } from '../../modals/reviewForm';

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './styles.scss';
-import { CardProps } from '../../utils/models/model';
-import { exampleWord } from '../../utils/constants/defaults';
+import { CardProps } from '../../../utils/models/model';
+import { exampleWord } from '../../../utils/constants/defaults';
 
 export const OptionCard: FC<CardProps> = ({
   option,

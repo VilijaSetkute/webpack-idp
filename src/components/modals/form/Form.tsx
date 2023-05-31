@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import './styles.scss';
-import { OptionCard } from '../../optionCard';
+import { OptionCard } from '../../cards/optionCard';
 import { FC } from 'react';
 import { optionSelections } from '../../../utils/constants/defaults';
 import {
