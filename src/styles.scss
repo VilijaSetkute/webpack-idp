@@ -89,7 +89,7 @@ body {
 @media (max-width: 767px) {
   .icon {
     margin-right: 0;
-    margin: 16px 16px 0 0;
+    margin: 8px 0 0 0;
   }
 }
 
@@ -101,6 +101,10 @@ body {
     &.direction-row {
       flex-direction: row;
       align-items: center;
+    }
+
+    &.direction-column {
+      flex-direction: column-reverse;
     }
   }
 }

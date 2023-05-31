@@ -40,7 +40,7 @@ export const ReaderCard: FC<CardProps> = ({
 
   return (
     <div className="reader-card-container">
-      <div className="options-spacing">
+      <div className="reader-card-header-spacing">
         <div className="options-spacing">
           {!!listItem.fixation && (
             <Chip text={`Fixation ${listItem.fixation}`} />
@@ -52,26 +52,30 @@ export const ReaderCard: FC<CardProps> = ({
             <Chip text={`Font size ${listItem.fontSize}`} />
           )}
         </div>
-        <div className="center-vertical">
+        <div className="center-vertical direction-column">
           {listItem.id === 'sample' && <div className="sample">Example</div>}
-          <FontAwesomeIcon
-            icon={faEye}
-            size="lg"
-            className="icon icon-view"
-            onClick={() => onReview()}
-          />
-          <FontAwesomeIcon
-            icon={faPen}
-            size="lg"
-            className="icon icon-edit"
-            onClick={() => onEdit()}
-          />
-          <FontAwesomeIcon
-            icon={faTrashCan}
-            size="lg"
-            className="icon icon-delete"
-            onClick={() => onDelete(listItem.id)}
-          />
+          <div>
+            <FontAwesomeIcon
+              style={{ marginRight: '8px' }}
+              icon={faEye}
+              size="lg"
+              className="icon icon-view"
+              onClick={() => onReview()}
+            />
+            <FontAwesomeIcon
+              style={{ marginRight: '8px' }}
+              icon={faPen}
+              size="lg"
+              className="icon icon-edit"
+              onClick={() => onEdit()}
+            />
+            <FontAwesomeIcon
+              icon={faTrashCan}
+              size="lg"
+              className="icon icon-delete"
+              onClick={() => onDelete(listItem.id)}
+            />
+          </div>
         </div>
       </div>
       <div className="reader-card--date">{listItem.date}</div>
