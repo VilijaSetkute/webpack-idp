@@ -30,6 +30,6 @@ header {
   text-align: center;
   background-color: $readerBlack;
   color: $white;
-  margin: 0 -1000% 24px -1000%;
+  // margin: 0 -1000% 24px -1000%;
   @extend %header-padding;
 }

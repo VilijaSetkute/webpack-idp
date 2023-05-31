@@ -13,27 +13,26 @@ body {
   flex-direction: column;
   margin: 0;
   overflow-x: hidden;
-  /* user-select: none; */
 }
 
 .App {
-  max-width: 1360px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   min-height: 100vh;
 }
 
-@media (max-width: 979px) {
-  .App {
-    padding: 0 40px;
-  }
-}
+// @media (max-width: 979px) {
+//   .App {
+//     padding: 0 40px;
+//   }
+// }
 
-@media (max-width: 479px) {
-  .App {
-    padding: 0 20px;
-  }
-}
+// @media (max-width: 479px) {
+//   .App {
+//     padding: 0 20px;
+//   }
+// }
 
 .bionic-opacity {
   opacity: $opacity70;

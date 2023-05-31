@@ -3,7 +3,8 @@
 .reader-container {
   max-width: 900px;
   margin: 0 auto;
-  min-height: calc(100vh - 242px - 118px);
+  min-height: calc(100vh - 238px - 118px);
+  padding: 0 40px;
 }
 
 .reader-intro {
@@ -40,12 +41,14 @@
 
 @media (max-width: 767px) {
   .reader-container {
-    min-height: calc(100vh - 183px - 118px);
+    min-height: calc(100vh - 179px - 118px);
+    padding: 0 40px;
   }
 }
 
 @media (max-width: 479px) {
   .reader-container {
-    min-height: calc(100vh - 145px - 118px);
+    min-height: calc(100vh - 141px - 118px);
+    padding: 0 20px;
   }
 }
