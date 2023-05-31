@@ -1,17 +1,22 @@
 import './styles.scss';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Dialog } from '../../reusable/dialog';
 import { DataContext } from '../../../utils/context/dataContext';
 import { ReaderCard } from '../../cards/readerCard/ReaderCard';
 import { Button } from '../../reusable/button';
 import { Form } from '../../modals/form';
 import { ReviewForm } from '../../modals/reviewForm';
+import { autoResizeTextarea } from '../../../utils/functions/autoResizeTextarea';
 
 export const Reader = () => {
   const [showFormModal, setShowFormModal] = useState<boolean>(false);
   const [showReviewModal, setShowReviewModal] = useState<boolean>(false);
   const [formId, setFormId] = useState<string | null>(null);
   const { bionicList } = useContext(DataContext);
+
+  useEffect(() => {
+    autoResizeTextarea('form__input--text');
+  }, [showFormModal]);
 
   const onClose = () => {
     showFormModal && setShowFormModal(false);
