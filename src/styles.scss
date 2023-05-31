@@ -97,5 +97,10 @@ body {
   .center-vertical {
     flex-direction: column;
     align-items: start;
+
+    &.direction-row {
+      flex-direction: row;
+      align-items: center;
+    }
   }
 }

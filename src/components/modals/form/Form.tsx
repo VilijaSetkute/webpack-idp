@@ -108,7 +108,7 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
 
         <div>
           <p className="form__options--subtitle">Font size: </p>
-          <div className="center-vertical">
+          <div className="center-vertical direction-row">
             <Button
               icon={<FontAwesomeIcon icon={faMinus} />}
               variant="primary"
@@ -138,8 +138,8 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
               fontSize: formFontSize,
               text: formtext,
             }}
-            textLength="full"
-            maxChars={200}
+            textLength="truncated"
+            maxChars={150}
           />
         </div>
       ) : (

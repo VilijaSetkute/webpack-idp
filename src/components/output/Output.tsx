@@ -39,7 +39,9 @@ export const Output: FC<Output> = ({
           {applyReader(selectedOptions, word)}
         </span>
       ))}
-      {textLength === 'truncated' && <span>...</span>}
+      {maxChars &&
+        textLength === 'truncated' &&
+        selectedOptions.text.length > maxChars && <span>...</span>}
     </div>
   );
 };

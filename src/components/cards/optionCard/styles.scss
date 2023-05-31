@@ -5,7 +5,6 @@
   font-size: $optionCardTitle;
   font-weight: $weight700;
   color: $readerTealDark;
-  line-height: 1;
 }
 .option-card {
   padding: 10px;
@@ -22,7 +21,6 @@
 
 .option-card__example {
   margin-bottom: 5px;
-  line-height: 1;
 }
 
 @media (max-width: 479px) {
@@ -36,5 +34,12 @@
   .option-card__example {
     margin-bottom: 0;
     margin-right: 5px;
+  }
+
+  .option-card__title {
+    // font-size: 16px;
+    display: flex;
+    align-items: center;
+    height: 16px;
   }
 }
