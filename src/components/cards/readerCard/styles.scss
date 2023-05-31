@@ -1,23 +1,5 @@
 @import '../../../styles.scss';
 
-.icon {
-  margin-right: 8px;
-  cursor: pointer;
-  color: grey;
-
-  &.icon-view:hover {
-    color: teal;
-  }
-
-  &.icon-edit:hover {
-    color: teal;
-  }
-
-  &.icon-delete:hover {
-    color: $readerRed;
-  }
-}
-
 .sample {
   border: 3px dashed $readerRed;
   color: $readerRed;

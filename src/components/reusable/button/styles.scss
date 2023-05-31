@@ -7,7 +7,7 @@
 
 %secondary {
   background-color: $readerYellow;
-  color: initial;
+  color: #484848;
 }
 
 %contentWidth {
@@ -20,11 +20,15 @@
 
 .custom-button {
   padding: 8px 12px;
-  margin: 16px 0;
+  margin: 8px 0;
   @extend %primary, %contentWidth;
 
   &.secondary {
     @extend %secondary;
+  }
+
+  &.secondary:hover {
+    background-color: $readerYellowDark;
   }
 
   &.component {

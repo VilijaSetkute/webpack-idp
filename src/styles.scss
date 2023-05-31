@@ -22,17 +22,33 @@ body {
   min-height: 100vh;
 }
 
-// @media (max-width: 979px) {
-//   .App {
-//     padding: 0 40px;
-//   }
-// }
+.icon {
+  cursor: pointer;
+  color: grey;
 
-// @media (max-width: 479px) {
-//   .App {
-//     padding: 0 20px;
-//   }
-// }
+  &.icon-close {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    margin: 0;
+  }
+
+  &.icon-close:hover {
+    color: $readerRed;
+  }
+
+  &.icon-delete:hover {
+    color: $readerRed;
+  }
+
+  &.icon-edit:hover {
+    color: teal;
+  }
+
+  &.icon-view:hover {
+    color: teal;
+  }
+}
 
 .bionic-opacity {
   opacity: $opacity70;
@@ -68,6 +84,13 @@ body {
 
 .mt-16 {
   margin-top: 16px;
+}
+
+@media (max-width: 767px) {
+  .icon {
+    margin-right: 0;
+    margin: 16px 16px 0 0;
+  }
 }
 
 @media (max-width: 479px) {

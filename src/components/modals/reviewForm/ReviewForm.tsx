@@ -4,27 +4,29 @@ import { Output } from '../../output';
 import { DataContext } from '../../../utils/context/dataContext';
 import { Chip } from '../../reusable/chip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { Button } from '../../reusable/button';
 
 interface ReviewFormProps {
   id: string | null;
   onEdit: (id: string) => void;
+  onClose: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const ReviewForm: FC<ReviewFormProps> = ({ id, onEdit }) => {
+export const ReviewForm: FC<ReviewFormProps> = ({ id, onEdit, onClose }) => {
   const { bionicList } = useContext(DataContext);
 
   const editItem = bionicList.filter((bionic) => bionic.id === id);
 
   return (
     <div className="review">
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
+      <FontAwesomeIcon
+        icon={faXmark}
+        size="xl"
+        className="icon icon-close"
+        onClick={() => onClose(false)}
+      />
+      <div className="review-header">
         <div className="selection-spacing">
           {!!editItem[0].fixation && (
             <Chip text={`Fixation ${editItem[0].fixation}`} />
@@ -37,10 +39,12 @@ export const ReviewForm: FC<ReviewFormProps> = ({ id, onEdit }) => {
           )}
         </div>
         <div>
-          <FontAwesomeIcon
-            icon={faPen}
-            size="lg"
-            className="icon icon-edit"
+          <Button
+            text="Edit"
+            icon={<FontAwesomeIcon icon={faPen} />}
+            capitalize={false}
+            variant="secondary"
+            buttonWidth="component"
             onClick={() => onEdit(id as string)}
           />
         </div>

@@ -67,7 +67,7 @@ export const Reader = () => {
         )}
         {showReviewModal && (
           <Dialog onClose={onClose}>
-            <ReviewForm id={formId} onEdit={onEdit} />
+            <ReviewForm id={formId} onEdit={onEdit} onClose={onClose} />
           </Dialog>
         )}
       </div>

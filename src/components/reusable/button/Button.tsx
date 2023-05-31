@@ -31,8 +31,8 @@ export const Button: FC<ButtonProps> = ({
       }}
       onClick={onClick}
     >
-      {icon && icon}
       {capitalize && text ? text.toUpperCase() : text}
+      {icon && <span>&nbsp; {icon}</span>}
     </button>
   );
 };
