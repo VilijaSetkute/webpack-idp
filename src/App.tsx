@@ -5,11 +5,11 @@ import { Header } from './components/structure/header/Header';
 import { Footer } from './components/structure/footer/Footer';
 import { Reader } from './components/structure/reader/Reader';
 import { DataContext } from './utils/context/dataContext';
-import { initialCard } from '../src/utils/constants/defaults';
+import { initialList } from '../src/utils/constants/defaults';
 import { BionicItem } from './utils/models/model';
 
 export const App = () => {
-  const [bionicList, setBionicList] = useState<BionicItem[]>([initialCard]);
+  const [bionicList, setBionicList] = useState<BionicItem[]>(initialList);
 
   return (
     <DataContext.Provider value={{ bionicList, setBionicList }}>
