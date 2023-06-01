@@ -1,0 +1,38 @@
+@import '../../../colors';
+
+%dropdownBasic {
+  border: 1px solid $readerTealLight;
+  border-radius: 8px;
+  width: calc(150px - 24px);
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  margin-left: 8px;
+}
+
+.dropdown--button {
+  @extend %dropdownBasic;
+  padding: 8px 12px;
+}
+
+.dropdown--options {
+  @extend %dropdownBasic;
+  position: absolute;
+  background-color: $white;
+  margin-top: 4px;
+  overflow: hidden;
+  width: 150px;
+  z-index: 1;
+}
+
+.dropdown--options--option {
+  padding: 8px 12px;
+
+  &:hover,
+  &.selected {
+    background-color: $readerTealLight;
+    color: $white;
+  }
+}
