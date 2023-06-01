@@ -35,3 +35,14 @@ export const initialCard = {
   fontSize: 20,
   text: defaultText,
 };
+
+export const initialCard2 = {
+  id: 'sample2',
+  date: '2023-05-26 09:46:28',
+  fixation: 'low',
+  contrast: 'high',
+  fontSize: 14,
+  text: defaultText,
+};
+
+export const initialList = [initialCard, initialCard2];
