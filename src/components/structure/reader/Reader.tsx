@@ -7,6 +7,8 @@ import { Button } from '../../reusable/button';
 import { Form } from '../../modals/form';
 import { ReviewForm } from '../../modals/reviewForm';
 import { autoResizeTextarea } from '../../../utils/functions/autoResizeTextarea';
+import { Dropdown } from '../../reusable/dropdown';
+import { getDropdownOptions } from '../../../utils/functions/getDropdownOptions';
 
 export const Reader = () => {
   const [showFormModal, setShowFormModal] = useState<boolean>(false);
@@ -50,6 +52,17 @@ export const Reader = () => {
         />
         <div>
           <h3 className="reader--subtitle">Saved bionic reading</h3>
+          <div className="reader--filters">
+            <div>Filter by:</div>
+            <Dropdown
+              type="fixation"
+              options={getDropdownOptions(bionicList, 'fixation')}
+            />
+            <Dropdown
+              type="contrast"
+              options={getDropdownOptions(bionicList, 'contrast')}
+            />
+          </div>
           {bionicList.map((el) => (
             <ReaderCard
               key={el.id}

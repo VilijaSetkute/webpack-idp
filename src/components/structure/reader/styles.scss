@@ -39,6 +39,12 @@
   margin: 16px 0;
 }
 
+.reader--filters {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
 @media (max-width: 767px) {
   .reader-container {
     min-height: calc(100vh - 178px - 118px);
