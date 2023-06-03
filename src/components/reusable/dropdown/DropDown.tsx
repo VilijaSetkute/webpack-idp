@@ -50,7 +50,7 @@ export const Dropdown: FC<DropdownProps> = ({ type, options }) => {
             <div
               key={opt}
               className={`dropdown--options--option ${
-                selection === opt && 'selected'
+                selection.toLowerCase().includes(opt) && 'selected'
               }`}
               onClick={() => dropdownSelect(opt)}
             >
