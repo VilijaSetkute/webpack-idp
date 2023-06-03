@@ -4,6 +4,7 @@ import { capitalizeString } from '../../../utils/functions/capitalizeString';
 import { DataContext } from '../../../utils/context/dataContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { Dialog } from '../dialog';
 
 interface DropdownProps {
   type: string;
@@ -45,19 +46,21 @@ export const Dropdown: FC<DropdownProps> = ({ type, options }) => {
         )}
       </div>
       {isExpanded && (
-        <div className="dropdown--options mt-4">
-          {options.map((opt: string) => (
-            <div
-              key={opt}
-              className={`dropdown--options--option ${
-                selection.toLowerCase().includes(opt) && 'selected'
-              }`}
-              onClick={() => dropdownSelect(opt)}
-            >
-              {capitalizeString(opt)}
-            </div>
-          ))}
-        </div>
+        <Dialog onClose={() => setIsexpanded(false)}>
+          <div className="dropdown--options mt-4">
+            {options.map((opt: string) => (
+              <div
+                key={opt}
+                className={`dropdown--options--option ${
+                  selection.toLowerCase().includes(opt) && 'selected'
+                }`}
+                onClick={() => dropdownSelect(opt)}
+              >
+                {capitalizeString(opt)}
+              </div>
+            ))}
+          </div>
+        </Dialog>
       )}
     </div>
   );
