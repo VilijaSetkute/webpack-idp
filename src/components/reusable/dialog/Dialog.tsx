@@ -27,7 +27,7 @@ export const Dialog: FC<ModalProps> = ({ onClose, children }) => {
   }, [onClose]);
 
   return (
-    <div className="modal-container" ref={modalRef}>
+    <div ref={modalRef}>
       {React.Children.map(children, (child) =>
         React.cloneElement(child as React.ReactElement, { onClose })
       )}
