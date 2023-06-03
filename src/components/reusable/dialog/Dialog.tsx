@@ -1,5 +1,4 @@
 import { FC, useEffect, useRef } from 'react';
-import './styles.scss';
 import React from 'react';
 
 interface ModalProps {
