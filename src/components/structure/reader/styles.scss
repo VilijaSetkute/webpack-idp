@@ -45,6 +45,13 @@
   align-items: center;
 }
 
+.reader--empty {
+  color: gray;
+  font-size: 16px;
+  text-align: center;
+  margin: 32px;
+}
+
 @media (max-width: 767px) {
   .reader-container {
     min-height: calc(100vh - 178px - 118px);

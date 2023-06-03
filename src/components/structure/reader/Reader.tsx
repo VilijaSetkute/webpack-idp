@@ -50,29 +50,37 @@ export const Reader = () => {
           weight={true}
           onClick={() => setShowFormModal(true)}
         />
-        <div>
-          <h3 className="reader--subtitle">Saved bionic reading</h3>
-          <div className="reader--filters">
-            <div>Filter by:</div>
-            <Dropdown
-              type="fixation"
-              options={getDropdownOptions(bionicList, 'fixation')}
-            />
-            <Dropdown
-              type="contrast"
-              options={getDropdownOptions(bionicList, 'contrast')}
-            />
+        {!!bionicList.length ? (
+          <div>
+            <h3 className="reader--subtitle">Saved bionic reading</h3>
+            <div className="reader--filters">
+              <div>Filter by:</div>
+              <Dropdown
+                type="fixation"
+                options={getDropdownOptions(bionicList, 'fixation')}
+              />
+              <Dropdown
+                type="contrast"
+                options={getDropdownOptions(bionicList, 'contrast')}
+              />
+            </div>
+            {!!filteredList.length ? (
+              filteredList.map((el) => (
+                <ReaderCard
+                  key={el.id}
+                  listItem={el}
+                  onSelect={setFormId}
+                  onOpenEdit={setShowFormModal}
+                  onOpenReview={setShowReviewModal}
+                />
+              ))
+            ) : (
+              <div className="reader--empty">No filter results</div>
+            )}
           </div>
-          {filteredList.map((el) => (
-            <ReaderCard
-              key={el.id}
-              listItem={el}
-              onSelect={setFormId}
-              onOpenEdit={setShowFormModal}
-              onOpenReview={setShowReviewModal}
-            />
-          ))}
-        </div>
+        ) : (
+          <div className="reader--empty">No items created</div>
+        )}
         {showFormModal && (
           <Dialog onClose={onClose}>
             <Form onClose={onClose} id={formId} />
