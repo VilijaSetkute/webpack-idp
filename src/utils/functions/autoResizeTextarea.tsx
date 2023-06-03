@@ -7,7 +7,6 @@ export const autoResizeTextarea = (className: string) => {
   const textarea = document.querySelector(
     `.${className}`
   ) as HTMLTextAreaElement;
-  console.log(textarea);
   if (textarea) {
     autoResize(textarea);
     textarea.addEventListener('input', () => autoResize(textarea));
