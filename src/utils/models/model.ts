@@ -16,3 +16,4 @@ export interface BionicItem {
 }
 
 export type BionicItemForm = Omit<BionicItem, 'id' | 'date'>;
+export type FilterOptions = Pick<BionicItem, 'fixation' | 'contrast'>;
