@@ -1,6 +1,9 @@
-import { FC, useState } from 'react';
+import { FC, useContext, useState } from 'react';
 import './styles.scss';
 import { capitalizeString } from '../../../utils/functions/capitalizeString';
+import { DataContext } from '../../../utils/context/dataContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 interface DropdownProps {
   type: string;
@@ -10,14 +13,20 @@ interface DropdownProps {
 export const Dropdown: FC<DropdownProps> = ({ type, options }) => {
   const [isExpanded, setIsexpanded] = useState<boolean>(false);
   const [selection, setSelection] = useState<string>(capitalizeString(type));
+  const { setFilter } = useContext(DataContext);
 
   const dropdownSelect = (opt: string) => {
     const selectionText = `${capitalizeString(opt)} ${type}`;
     setSelection(selectionText);
     setIsexpanded(!isExpanded);
+    setFilter((prevValue) => ({ ...prevValue, [type]: opt }));
   };
 
-  console.log(options, type);
+  const resetSelection = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelection(capitalizeString(type));
+    setFilter((prevValue) => ({ ...prevValue, [type]: `${type}` }));
+  };
 
   return (
     <div className="dropdown">
@@ -25,7 +34,15 @@ export const Dropdown: FC<DropdownProps> = ({ type, options }) => {
         className="dropdown--button"
         onClick={() => setIsexpanded(!isExpanded)}
       >
-        {selection}
+        {selection}{' '}
+        {selection.toLowerCase() !== type && (
+          <FontAwesomeIcon
+            icon={faXmark}
+            color="gray"
+            size="lg"
+            onClick={(e) => resetSelection(e)}
+          />
+        )}
       </div>
       {isExpanded && (
         <div className="dropdown--options mt-4">
