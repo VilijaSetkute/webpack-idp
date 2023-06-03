@@ -21,7 +21,7 @@ export const ReaderCard: FC<CardProps> = ({
   onOpenEdit,
   onOpenReview,
 }) => {
-  const { bionicList, setBionicList } = useContext(DataContext);
+  const { filteredList, setBionicList } = useContext(DataContext);
 
   const onEdit = () => {
     onSelect(listItem.id);
@@ -34,7 +34,7 @@ export const ReaderCard: FC<CardProps> = ({
   };
 
   const onDelete = (id: string) => {
-    const findId = bionicList.filter((el) => el.id !== id);
+    const findId = filteredList.filter((el) => el.id !== id);
     setBionicList(findId);
   };
 

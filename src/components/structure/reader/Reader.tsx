@@ -14,7 +14,7 @@ export const Reader = () => {
   const [showFormModal, setShowFormModal] = useState<boolean>(false);
   const [showReviewModal, setShowReviewModal] = useState<boolean>(false);
   const [formId, setFormId] = useState<string | null>(null);
-  const { bionicList } = useContext(DataContext);
+  const { filteredList, bionicList } = useContext(DataContext);
 
   useEffect(() => {
     autoResizeTextarea('form__input--text');
@@ -63,7 +63,7 @@ export const Reader = () => {
               options={getDropdownOptions(bionicList, 'contrast')}
             />
           </div>
-          {bionicList.map((el) => (
+          {filteredList.map((el) => (
             <ReaderCard
               key={el.id}
               listItem={el}

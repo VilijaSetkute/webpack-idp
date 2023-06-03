@@ -14,9 +14,9 @@ interface ReviewFormProps {
 }
 
 export const ReviewForm: FC<ReviewFormProps> = ({ id, onEdit, onClose }) => {
-  const { bionicList } = useContext(DataContext);
+  const { filteredList } = useContext(DataContext);
 
-  const editItem = bionicList.filter((bionic) => bionic.id === id);
+  const editItem = filteredList.filter((bionic) => bionic.id === id);
 
   return (
     <div className="review">

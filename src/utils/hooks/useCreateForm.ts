@@ -33,9 +33,9 @@ export const useCreateForm = (
   const { setBionicList } = useContext(DataContext);
   const [selectedOptions, setSelectedOptions] =
     useState<BionicItemForm>(defaultOptions);
-  const { bionicList } = useContext(DataContext);
+  const { filteredList } = useContext(DataContext);
 
-  const editItem = bionicList.filter((bionic) => bionic.id === id);
+  const editItem = filteredList.filter((bionic) => bionic.id === id);
 
   const methods = useForm<BionicItemForm>({
     defaultValues: {
