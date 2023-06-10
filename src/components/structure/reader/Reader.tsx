@@ -9,9 +9,11 @@ import { ReviewForm } from '../../modals/reviewForm';
 import { autoResizeTextarea } from '../../../utils/functions/autoResizeTextarea';
 import { Dropdown } from '../../reusable/dropdown';
 import { getDropdownOptions } from '../../../utils/functions/getDropdownOptions';
+import { JokeForm } from '../../modals/jokeForm';
 
 export const Reader = () => {
   const [showFormModal, setShowFormModal] = useState<boolean>(false);
+  const [showJokeModal, setJokeModal] = useState<boolean>(false);
   const [showReviewModal, setShowReviewModal] = useState<boolean>(false);
   const [formId, setFormId] = useState<string | null>(null);
   const { filteredList, bionicList } = useContext(DataContext);
@@ -23,6 +25,7 @@ export const Reader = () => {
   const onClose = () => {
     showFormModal && setShowFormModal(false);
     showReviewModal && setShowReviewModal(false);
+    showJokeModal && setJokeModal(false);
     setFormId(null);
   };
 
@@ -50,6 +53,17 @@ export const Reader = () => {
           weight={true}
           onClick={() => setShowFormModal(true)}
         />
+        <div style={{ textAlign: 'center' }}>
+          <div>or</div>
+          <Button
+            text="Get some random text"
+            variant="secondary"
+            buttonWidth="content"
+            capitalize={false}
+            weight={true}
+            onClick={() => setJokeModal(true)}
+          />
+        </div>
         {!!bionicList.length ? (
           <div>
             <h3 className="reader--subtitle">Saved bionic reading</h3>
@@ -89,6 +103,11 @@ export const Reader = () => {
         {showReviewModal && (
           <Dialog onClose={onClose}>
             <ReviewForm id={formId} onEdit={onEdit} onClose={onClose} />
+          </Dialog>
+        )}
+        {showJokeModal && (
+          <Dialog onClose={onClose}>
+            <JokeForm onClose={onClose} />
           </Dialog>
         )}
       </div>
