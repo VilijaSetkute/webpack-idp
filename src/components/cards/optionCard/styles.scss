@@ -36,8 +36,14 @@
     margin-right: 5px;
   }
 
-  .option-card__title {
-    // font-size: 16px;
+  .option-card__title--small {
+    display: flex;
+    align-items: center;
+    height: 16px;
+  }
+
+  .option-card__title--big {
+    font-size: 16px;
     display: flex;
     align-items: center;
     height: 16px;

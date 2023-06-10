@@ -50,11 +50,15 @@ export const OptionCard: FC<CardProps> = ({
 
   return (
     <div className={isSelected ? 'option-card--selected' : 'option-card'}>
-      <div className="option-card__example">
-        {option === 'fixation' && formatFixationCard(fixation)}
-        {option === 'contrast' && formatContrastCard(contrast)}
+      {option && (
+        <div className="option-card__example">
+          {option === 'fixation' && formatFixationCard(fixation)}
+          {option === 'contrast' && formatContrastCard(contrast)}
+        </div>
+      )}
+      <div className={`option-card__title--${option ? 'small' : 'big'}`}>
+        {optionTitle}
       </div>
-      <div className="option-card__title">{optionTitle}</div>
     </div>
   );
 };
