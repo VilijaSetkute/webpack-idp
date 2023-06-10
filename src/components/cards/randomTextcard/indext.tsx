@@ -1,0 +1,1 @@
+export { RandomTextCard } from './RandomTextCard';
