@@ -56,10 +56,6 @@ export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
     }
   };
 
-  const jokeInList = (id: string) => bionicList.some((el) => el.id === id);
-
-  console.log(bionicList);
-
   const addRandomText = (id: string, text: string[]) => {
     const updateList = jokeList.map((obj) => {
       if (obj.id === id) {
@@ -74,7 +70,7 @@ export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
       fixation: 'standard',
       contrast: 'standard',
       fontSize: 16,
-      text: text[0],
+      text: text,
     };
     setJokeList(updateList);
     setBionicList((prevData) => [...prevData, data]);
@@ -120,11 +116,12 @@ export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
                 <div style={{ width: '90%' }}>
                   {el.joke.map((joke) => (
                     <Output
+                      key={joke}
                       selectedOptions={{
                         fixation: 'standard',
                         contrast: 'standard',
                         fontSize: 16,
-                        text: joke,
+                        text: [joke],
                       }}
                       textLength="full"
                     />

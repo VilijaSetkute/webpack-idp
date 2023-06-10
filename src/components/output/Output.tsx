@@ -15,33 +15,43 @@ export const Output: FC<Output> = ({
   textLength,
   maxChars,
 }) => {
-  const fullArray = stringToArray(selectedOptions.text);
-  const maxWords = maxChars || selectedOptions.text.length;
+  // const fullArray = stringToArray(selectedOptions.text);
+  const fullArray = selectedOptions.text.map((parapgraph) =>
+    stringToArray(parapgraph)
+  );
+  const maxWords = maxChars || selectedOptions.text[0].length;
   let wordCount = 0;
   const truncatedArray = [];
 
-  for (const word of fullArray) {
+  for (const word of fullArray[0]) {
     if (wordCount + word.length <= maxWords) {
       truncatedArray.push(word);
       wordCount += word.length;
     }
   }
 
-  const wordArray = textLength === 'full' ? fullArray : truncatedArray;
+  const wordArray = textLength === 'full' ? fullArray : [truncatedArray];
+
+  const renderOutput = () =>
+    wordArray.map((par: any) => (
+      <div key={par} style={{ marginBottom: '16px' }}>
+        {par.map((word: string, idx: number) => (
+          <span key={idx} className="inline-block">
+            {applyReader(selectedOptions, word)}
+          </span>
+        ))}
+      </div>
+    ));
 
   return (
     <div
       className="output__spacing"
       style={{ fontSize: selectedOptions.fontSize }}
     >
-      {wordArray.map((word, idx) => (
-        <span key={idx} className="inline-block">
-          {applyReader(selectedOptions, word)}
-        </span>
-      ))}
+      {renderOutput()}
       {maxChars &&
         textLength === 'truncated' &&
-        selectedOptions.text.length > maxChars && <span>...</span>}
+        selectedOptions.text[0].length > maxChars && <span>...</span>}
     </div>
   );
 };

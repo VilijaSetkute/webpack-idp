@@ -53,7 +53,6 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
   const getSingleJoke = async () => {
     const singleJoke = await getJokes(1);
     methods.setValue('text', singleJoke.joke);
-    console.log(singleJoke);
   };
 
   return (
@@ -70,7 +69,7 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
                 className="form__input--text"
                 placeholder="Enter your custom text"
                 value={field.value}
-                onChange={(e) => methods.setValue(field.name, e.target.value)}
+                onChange={(e) => methods.setValue('text', [e.target.value])}
               />
               {errors.text && (
                 <div className="form__error">{errors.text.message}</div>
