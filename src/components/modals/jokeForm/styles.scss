@@ -1,0 +1,29 @@
+@import '../../../styles.scss';
+
+.review {
+  min-height: 25vh;
+  position: relative;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selection-spacing {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .review-header {
+    align-items: start;
+  }
+
+  .selection-spacing {
+    align-items: start;
+    flex-direction: column;
+  }
+}
