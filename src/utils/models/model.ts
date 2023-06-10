@@ -1,5 +1,5 @@
 export interface CardProps {
-  option: string;
+  option?: string;
   optionTitle: string;
   fixation?: string;
   contrast?: string;
