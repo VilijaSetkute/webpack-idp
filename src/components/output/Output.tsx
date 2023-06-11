@@ -15,7 +15,6 @@ export const Output: FC<Output> = ({
   textLength,
   maxChars,
 }) => {
-  // const fullArray = stringToArray(selectedOptions.text);
   const fullArray = selectedOptions.text.map((parapgraph) =>
     stringToArray(parapgraph)
   );
