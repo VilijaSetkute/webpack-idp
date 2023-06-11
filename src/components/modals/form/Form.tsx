@@ -52,7 +52,7 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
 
   const getSingleJoke = async () => {
     const singleJoke = await getJokes(1);
-    methods.setValue('text', singleJoke.joke);
+    methods.setValue('text', [singleJoke.joke]);
   };
 
   return (

@@ -36,14 +36,15 @@ export const useCreateForm = (
   const { filteredList } = useContext(DataContext);
 
   const editItem = filteredList.filter((bionic) => bionic.id === id);
-  const paragpahedText = editItem[0].text.map((txt) => txt.replace('.,', '\n'));
 
   const methods = useForm<BionicItemForm>({
     defaultValues: {
       fixation: !!id ? editItem[0].fixation : 'none',
       contrast: !!id ? editItem[0].contrast : 'standard',
       fontSize: !!id ? editItem[0].fontSize : 14,
-      text: !!id ? paragpahedText : [''],
+      text: !!id
+        ? editItem[0].text.map((txt) => txt.replace('.,', '\n'))
+        : [' '],
     },
     resolver: yupResolver(formValidator),
     mode: 'all',

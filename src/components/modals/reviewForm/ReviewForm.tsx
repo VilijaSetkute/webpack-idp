@@ -16,9 +16,6 @@ interface ReviewFormProps {
 export const ReviewForm: FC<ReviewFormProps> = ({ id, onEdit, onClose }) => {
   const { filteredList } = useContext(DataContext);
   const editItem = filteredList.filter((bionic) => bionic.id === id);
-  const paragpahedText = editItem[0].text
-    .map((txt) => txt.replace('.,', '\n'))[0]
-    .split('\n');
 
   return (
     <div className="modal-container">
@@ -58,7 +55,7 @@ export const ReviewForm: FC<ReviewFormProps> = ({ id, onEdit, onClose }) => {
             fixation: editItem[0].fixation,
             contrast: editItem[0].contrast,
             fontSize: editItem[0].fontSize,
-            text: paragpahedText,
+            text: editItem[0].text,
           }}
           textLength="full"
         />
