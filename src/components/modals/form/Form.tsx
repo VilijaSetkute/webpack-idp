@@ -13,7 +13,6 @@ import { Output } from '../../output';
 import { Button } from '../../reusable/button';
 import { useCreateForm } from '../../../utils/hooks/useCreateForm';
 import { Controller } from 'react-hook-form';
-import { getJokes } from '../../../utils/functions/getJokes';
 
 interface FormProps {
   id: string | null;
@@ -50,11 +49,6 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
     }
   };
 
-  const getSingleJoke = async () => {
-    const singleJoke = await getJokes(1);
-    methods.setValue('text', [singleJoke.joke]);
-  };
-
   return (
     <div className="modal-container">
       <div className="form">
@@ -76,13 +70,6 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
               {errors.text && (
                 <div className="form__error">{errors.text.message}</div>
               )}
-              <Button
-                text="Add random joke"
-                capitalize={true}
-                variant="primary"
-                buttonWidth="component"
-                onClick={getSingleJoke}
-              />
             </>
           )}
         />
