@@ -68,7 +68,9 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
                 {...field}
                 className="form__input--text"
                 placeholder="Enter your custom text"
-                value={field.value}
+                value={field.value.map((val) =>
+                  val.replaceAll(/([.,?!:;]),/g, '$1\n')
+                )}
                 onChange={(e) => methods.setValue('text', [e.target.value])}
               />
               {errors.text && (

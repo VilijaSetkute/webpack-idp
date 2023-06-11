@@ -43,7 +43,7 @@ export const useCreateForm = (
       contrast: !!id ? editItem[0].contrast : 'standard',
       fontSize: !!id ? editItem[0].fontSize : 14,
       text: !!id
-        ? editItem[0].text.map((txt) => txt.replace('.,', '\n'))
+        ? editItem[0].text.map((txt) => txt.replaceAll(/([.,?!:;]),/g, '$1\n'))
         : [' '],
     },
     resolver: yupResolver(formValidator),
@@ -79,13 +79,17 @@ export const useCreateForm = (
     fontSize: formFontSize,
     text: formtext,
   }: BionicItemForm) => {
+    const fomattedText = formtext[0]
+      .replaceAll(/([,?!:;]),/g, '$1\n')
+      .split('\n');
+
     const data: BionicItem = {
       id: !!id ? id : `id${Math.random() * 1000000000000000000}`,
       date: `${format(new Date(), 'yyyy-MM-dd hh:mm:ss')}`,
       fixation: formFixation,
       contrast: formContrast,
       fontSize: formFontSize,
-      text: formtext,
+      text: fomattedText,
     };
     addOrUpdateData(data);
     onClose(false);
