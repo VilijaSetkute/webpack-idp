@@ -20,7 +20,10 @@ const getSplitPosition = (
   }
 };
 
-export const applyReader = (selectedOptions: BionicItemForm, word: string) => {
+export const applyReader = <T extends BionicItemForm>(
+  selectedOptions: T,
+  word: string
+): JSX.Element => {
   const isLongWord = word.length > 4;
   const charPos = getSplitPosition(
     word,
