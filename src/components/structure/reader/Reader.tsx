@@ -53,7 +53,7 @@ export const Reader = () => {
           weight={true}
           onClick={() => setShowFormModal(true)}
         />
-        <div style={{ textAlign: 'center' }}>
+        <div className="reader--random-button">
           <div>or</div>
           <Button
             text="Get some random text"

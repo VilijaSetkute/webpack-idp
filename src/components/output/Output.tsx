@@ -33,7 +33,7 @@ export const Output: FC<Output> = ({
 
   const renderOutput = () =>
     wordArray.map((par: any) => (
-      <div key={par} style={{ marginBottom: '16px' }}>
+      <div key={par} className="mb-16">
         {par.map((word: string, idx: number) => (
           <span key={idx} className="inline-block">
             {applyReader(selectedOptions, word)}

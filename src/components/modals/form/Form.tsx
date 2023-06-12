@@ -133,7 +133,7 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
 
         <div className="from__preview--separator">Preview</div>
         {!!formtext.length ? (
-          <div style={{ padding: '0 16px' }}>
+          <div className="px-16">
             <Output
               selectedOptions={{
                 fixation: formFixation,

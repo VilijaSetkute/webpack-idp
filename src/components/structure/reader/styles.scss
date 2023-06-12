@@ -25,6 +25,10 @@
   & button:hover {
     background-color: $readerTealDark;
   }
+
+  & .reader--random-button {
+    text-align: center;
+  }
 }
 
 .reader__button {

@@ -57,7 +57,7 @@ export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
         <div className="reader-card--date">
           Choose how many jokes to generate
         </div>
-        <div style={{ display: 'flex' }}>
+        <div className="display-flex">
           {[1, 2, 3, 4, 5].map((num, idx) => (
             <div key={idx} onClick={() => generateJokes(num)}>
               <OptionCard
@@ -68,7 +68,7 @@ export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
             </div>
           ))}
         </div>
-        <div style={{ marginTop: '32px' }}>
+        <div className="mt-32">
           {!!jokeList.length &&
             jokeList.map((el, idx) => (
               <RandomTextCard
