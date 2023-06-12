@@ -1,6 +1,6 @@
 @import '../../../styles.scss';
 
-.sample {
+.reader-card__sample {
   border: 3px dashed $readerRed;
   color: $readerRed;
   font-weight: bold;
@@ -25,15 +25,15 @@
   margin-bottom: 16px;
 }
 
-.reader-card-header-spacing,
-.options-spacing {
+.reader-card__header--spacing,
+.reader-card__options--spacing {
   margin-bottom: 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.reader-card--date {
+.reader-card__date {
   margin-left: 4px;
   margin-bottom: 16px;
   font-size: 13px;
@@ -41,18 +41,18 @@
 }
 
 @media (max-width: 767px) {
-  .options-spacing {
+  .reader-card__options--spacing {
     flex-direction: column;
     align-items: start;
   }
 
-  .reader-card-header-spacing {
+  .reader-card__header--spacing {
     align-items: start;
   }
 }
 
 @media (max-width: 479px) {
-  .sample {
+  .reader-card__sample {
     margin-top: 16px;
     margin-right: 0;
   }

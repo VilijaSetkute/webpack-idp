@@ -50,7 +50,9 @@ export const ReaderCard: FC<CardProps> = ({
 
   const renderControls = (
     <>
-      {listItem.id === 'sample' && <div className="sample">Example</div>}
+      {listItem.id === 'sample' && (
+        <div className="reader-card__sample">Example</div>
+      )}
       <div>
         <FontAwesomeIcon
           style={{ marginRight: '8px' }}
@@ -78,11 +80,11 @@ export const ReaderCard: FC<CardProps> = ({
 
   return (
     <div className="reader-card-container">
-      <div className="reader-card-header-spacing">
-        <div className="options-spacing">{renderChips}</div>
+      <div className="reader-card__header--spacing">
+        <div className="reader-card__options--spacing">{renderChips}</div>
         <div className="center-vertical direction-column">{renderControls}</div>
       </div>
-      <div className="reader-card--date">{listItem.date}</div>
+      <div className="reader-card__date">{listItem.date}</div>
       <Output
         selectedOptions={{
           fixation: listItem.fixation,
