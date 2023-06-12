@@ -38,15 +38,15 @@ export const applyReader = <T extends BionicItemForm>(
       <span
         className={
           selectedOptions.contrast === 'low'
-            ? 'bionic-highlight bionic-opacity'
-            : 'bionic-highlight'
+            ? 'bionic--highlight bionic--opacity'
+            : 'bionic--highlight'
         }
       >
         {splitWord[0]}
       </span>
       <span
         className={
-          selectedOptions.contrast !== 'standard' ? 'bionic-opacity' : 'none'
+          selectedOptions.contrast !== 'standard' ? 'bionic--opacity' : 'none'
         }
       >
         {splitWord[1]}
