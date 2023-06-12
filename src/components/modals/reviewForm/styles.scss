@@ -5,24 +5,31 @@
   position: relative;
 }
 
-.review-header {
+.review__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.selection-spacing {
+.review__selection-spacing {
   margin-bottom: 4px;
   display: flex;
   align-items: center;
 }
 
+.review__date {
+  margin-left: 4px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: $readerGray;
+}
+
 @media (max-width: 767px) {
-  .review-header {
+  .review__header {
     align-items: start;
   }
 
-  .selection-spacing {
+  .review__selection-spacing {
     align-items: start;
     flex-direction: column;
   }

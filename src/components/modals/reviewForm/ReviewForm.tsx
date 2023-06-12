@@ -40,8 +40,8 @@ export const ReviewForm: FC<ReviewFormProps> = ({ id, onEdit, onClose }) => {
           className="icon icon-close"
           onClick={() => onClose(false)}
         />
-        <div className="review-header">
-          <div className="selection-spacing">{renderChips}</div>
+        <div className="review__header">
+          <div className="review__selection-spacing">{renderChips}</div>
           <div>
             <Button
               text="Edit"
@@ -53,7 +53,7 @@ export const ReviewForm: FC<ReviewFormProps> = ({ id, onEdit, onClose }) => {
             />
           </div>
         </div>
-        <div className="reader-card--date">{editItem[0].date}</div>
+        <div className="review__date">{editItem[0].date}</div>
         <Output
           selectedOptions={{
             fixation: editItem[0].fixation,
