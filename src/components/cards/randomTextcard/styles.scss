@@ -1,0 +1,23 @@
+@import '../../../styles.scss';
+
+.random-card {
+  padding: 0 8px;
+  border-bottom: 1px solid $readerGray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.random-card--text {
+  width: 80%;
+}
+
+.random-card--control {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+
+  .icon-check {
+    color: $readerTealDark;
+  }
+}

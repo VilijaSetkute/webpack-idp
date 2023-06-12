@@ -17,3 +17,11 @@ export interface BionicItem {
 
 export type BionicItemForm = Omit<BionicItem, 'id' | 'date'>;
 export type FilterOptions = Pick<BionicItem, 'fixation' | 'contrast'>;
+
+export interface Joke {
+  id: string;
+  category: string;
+  type: string;
+  joke: string[];
+  added: boolean;
+}
