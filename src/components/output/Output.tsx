@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import './styles.scss';
 import { applyReader } from '../../utils/functions/applyReader';
 import { BionicItemForm } from '../../utils/models/model';
 import { stringToArray } from '../../utils/functions/stringToArray';
@@ -47,10 +46,7 @@ export const Output: FC<Output> = ({
     ));
 
   return (
-    <div
-      className="output__spacing"
-      style={{ fontSize: selectedOptions.fontSize }}
-    >
+    <div className="my-16" style={{ fontSize: selectedOptions.fontSize }}>
       {renderOutput()}
       {maxChars &&
         textLength === 'truncated' &&
