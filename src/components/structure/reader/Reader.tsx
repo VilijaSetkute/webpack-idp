@@ -54,8 +54,8 @@ export const Reader = () => {
     <>
       {!!bionicList.length ? (
         <div>
-          <h3 className="reader--subtitle">Saved bionic reading</h3>
-          <div className="reader--filters">{renderFilterOptions}</div>
+          <h3 className="reader__subtitle">Saved bionic reading</h3>
+          <div className="reader__filters">{renderFilterOptions}</div>
           {!!filteredList.length ? (
             filteredList.map((el) => (
               <ReaderCard
@@ -67,11 +67,11 @@ export const Reader = () => {
               />
             ))
           ) : (
-            <div className="reader--empty">No filter results</div>
+            <div className="reader__empty">No filter results</div>
           )}
         </div>
       ) : (
-        <div className="reader--empty">No items created</div>
+        <div className="reader__empty">No items created</div>
       )}
     </>
   );
@@ -98,7 +98,7 @@ export const Reader = () => {
 
   return (
     <div className="reader-container">
-      <div className="reader-intro">
+      <div className="reader__intro">
         <h3>What is bionic reading</h3>
         <div>{introText}</div>
         <Button
@@ -109,7 +109,7 @@ export const Reader = () => {
           weight={true}
           onClick={() => setShowFormModal(true)}
         />
-        <div className="reader--random-button">
+        <div className="reader__random-button">
           <div>or</div>
           <Button
             text="Get some random text"
