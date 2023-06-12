@@ -133,7 +133,7 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
           </div>
         </div>
 
-        <div className="from__preview--separator">Preview</div>
+        <div className="form__preview--separator">Preview</div>
         {!!formtext.length ? (
           <div className="px-16">
             <Output
@@ -148,7 +148,7 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
             />
           </div>
         ) : (
-          <div className="from__preview--no-text">No text provided</div>
+          <div className="form__preview--no-text">No text provided</div>
         )}
 
         <Button
