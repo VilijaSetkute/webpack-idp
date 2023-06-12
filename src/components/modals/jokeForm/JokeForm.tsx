@@ -5,7 +5,12 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import { getJokes } from '../../../utils/functions/getJokes';
 import { OptionCard } from '../../cards/optionCard';
-import { Joke, MultiJoke, SingleJoke } from '../../../utils/models/model';
+import {
+  Joke,
+  MultiJoke,
+  SingleJoke,
+  JokesApi,
+} from '../../../utils/models/model';
 import { RandomTextCard } from '../../cards/randomTextCard';
 
 interface ReviewFormProps {
@@ -21,14 +26,18 @@ export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
     const jokes = await getJokes(num);
     if (num > 1) {
       const jokeObj = jokes as MultiJoke;
-      const transformedJokes: Joke[] = jokeObj.jokes.map((joke: any) => ({
-        id: `id${Math.random() * 1000000000000000000}`,
-        category: joke.category,
-        type: joke.type,
-        joke:
-          joke.type === 'single' ? [joke.joke] : [joke.setup, joke.delivery],
-        added: false,
-      }));
+      console.log(jokeObj.jokes[0]);
+      const transformedJokes: Joke[] = jokeObj.jokes.map((joke: JokesApi) => {
+        const jokeText =
+          joke.type === 'single' ? [joke.joke] : [joke.setup, joke.delivery];
+        return {
+          id: `id${Math.random() * 1000000000000000000}`,
+          category: joke.category,
+          type: joke.type,
+          joke: jokeText.filter(Boolean) as string[],
+          added: false,
+        };
+      });
       setJokeList(transformedJokes);
     } else {
       const jokeObj = jokes as SingleJoke;

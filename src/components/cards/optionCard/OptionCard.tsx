@@ -15,7 +15,7 @@ export const OptionCard: FC<CardProps> = ({
   contrast = 'standard',
   isSelected,
 }) => {
-  const evaluateFixation = (number: any) => {
+  const evaluateFixation = (number: number) => {
     const exampleWord = 'Bionic';
     const splitList = [exampleWord.slice(0, number), exampleWord.slice(number)];
     return (
@@ -26,7 +26,7 @@ export const OptionCard: FC<CardProps> = ({
     );
   };
 
-  const formatFixationCard = (fixation: any) => {
+  const formatFixationCard = (fixation: string) => {
     switch (fixation) {
       case 'none':
         return evaluateFixation(0);
@@ -41,7 +41,7 @@ export const OptionCard: FC<CardProps> = ({
     }
   };
 
-  const formatContrastCard = (contrast: any) => {
+  const formatContrastCard = (contrast: string) => {
     return (
       <>
         <span

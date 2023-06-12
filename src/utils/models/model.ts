@@ -18,7 +18,7 @@ export interface Joke {
   added: boolean;
 }
 
-interface JokesApi {
+export interface JokesApi {
   category: string;
   type: 'single' | 'twopart';
   setup?: string;
@@ -44,5 +44,5 @@ export interface SingleJoke extends JokesApi {
 export interface MultiJoke extends JokesApi {
   error: false;
   amount: number;
-  jokes: Joke[];
+  jokes: JokesApi[];
 }

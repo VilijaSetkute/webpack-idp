@@ -55,7 +55,7 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
   ) => {
     return (
       <>
-        {optionSelections[`${version}`].map((el: any, idx: any) => (
+        {optionSelections[`${version}`].map((el: string, idx: number) => (
           <div key={idx} onClick={() => updateOptions(version, el)}>
             <OptionCard
               option={version}

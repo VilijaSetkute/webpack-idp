@@ -36,8 +36,8 @@ export const Output: FC<Output> = ({
   const wordArray = textLength === 'full' ? fullArray : truncatedArray();
 
   const renderOutput = () =>
-    wordArray.map((par: any) => (
-      <div key={par} className="mb-16">
+    wordArray.map((par: string[], idx: number) => (
+      <div key={idx} className="mb-16">
         {par.map((word: string, idx: number) => (
           <span key={idx} className="inline-block">
             {applyReader(selectedOptions, word)}
