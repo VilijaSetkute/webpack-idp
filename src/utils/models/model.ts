@@ -17,3 +17,32 @@ export interface Joke {
   joke: string[];
   added: boolean;
 }
+
+interface JokesApi {
+  category: string;
+  type: 'single' | 'twopart';
+  setup?: string;
+  delivery?: string;
+  joke?: string;
+  flags: {
+    nsfw: boolean;
+    religious: boolean;
+    political: boolean;
+    racist: boolean;
+    sexist: boolean;
+    explicit: boolean;
+  };
+  id: number;
+  safe: boolean;
+  lang: string;
+}
+
+export interface SingleJoke extends JokesApi {
+  error: boolean;
+}
+
+export interface MultiJoke extends JokesApi {
+  error: false;
+  amount: number;
+  jokes: Joke[];
+}
