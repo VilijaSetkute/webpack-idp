@@ -23,6 +23,13 @@
   margin-bottom: 5px;
 }
 
+.option-card__title--big {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  height: 16px;
+}
+
 @media (max-width: 479px) {
   .option-card,
   .option-card--selected {
@@ -34,18 +41,5 @@
   .option-card__example {
     margin-bottom: 0;
     margin-right: 5px;
-  }
-
-  .option-card__title--small {
-    display: flex;
-    align-items: center;
-    height: 16px;
-  }
-
-  .option-card__title--big {
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    height: 16px;
   }
 }

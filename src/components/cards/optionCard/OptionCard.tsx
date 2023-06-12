@@ -62,7 +62,9 @@ export const OptionCard: FC<CardProps> = ({
           {option === 'contrast' && formatContrastCard(contrast)}
         </div>
       )}
-      <div className={`option-card__title--${option ? 'small' : 'big'}`}>
+      <div
+        className={option ? 'option-card__title' : 'option-card__title--big'}
+      >
         {optionTitle}
       </div>
     </div>
