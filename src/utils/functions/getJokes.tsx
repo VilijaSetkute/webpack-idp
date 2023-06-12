@@ -22,5 +22,9 @@ export const getJokes = async <T extends number>(
 
   const res = await fetch(url, options);
   const json = await res.json();
-  return json;
+  if (amount === 1) {
+    return json as SingleJoke;
+  } else {
+    return json as MultiJoke;
+  }
 };
