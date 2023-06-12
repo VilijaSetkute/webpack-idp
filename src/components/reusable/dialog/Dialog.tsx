@@ -1,9 +1,9 @@
-import { FC, useEffect, useRef } from 'react';
 import React from 'react';
+import { FC, ReactNode, useRef, useEffect } from 'react';
 
 interface ModalProps {
   onClose: () => void;
-  children: any;
+  children: ReactNode;
 }
 
 export const Dialog: FC<ModalProps> = ({ onClose, children }) => {
