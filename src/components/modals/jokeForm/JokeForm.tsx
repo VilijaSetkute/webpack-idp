@@ -46,6 +46,40 @@ export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
     }
   };
 
+  const renderCountOptions = (jokesNum: number) => {
+    const optionList = Array.from(
+      { length: jokesNum },
+      (_, index) => index + 1
+    );
+    return (
+      <>
+        {optionList.map((num, idx) => (
+          <div key={idx} onClick={() => generateJokes(num)}>
+            <OptionCard
+              optionTitle={`${num}`}
+              fixation={`${num}`}
+              isSelected={amount === num}
+            />
+          </div>
+        ))}
+      </>
+    );
+  };
+
+  const renderTextCards = (
+    <>
+      {!!jokeList.length &&
+        jokeList.map((el, idx) => (
+          <RandomTextCard
+            key={idx}
+            jokeList={jokeList}
+            setJokeList={setJokeList}
+            item={el}
+          />
+        ))}
+    </>
+  );
+
   return (
     <div className="modal-container">
       <div className="review">
@@ -59,28 +93,8 @@ export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
         <div className="reader-card--date">
           Choose how many jokes to generate
         </div>
-        <div className="display-flex">
-          {[1, 2, 3, 4, 5].map((num, idx) => (
-            <div key={idx} onClick={() => generateJokes(num)}>
-              <OptionCard
-                optionTitle={`${num}`}
-                fixation={`${num}`}
-                isSelected={amount === num}
-              />
-            </div>
-          ))}
-        </div>
-        <div className="mt-32">
-          {!!jokeList.length &&
-            jokeList.map((el, idx) => (
-              <RandomTextCard
-                key={idx}
-                jokeList={jokeList}
-                setJokeList={setJokeList}
-                item={el}
-              />
-            ))}
-        </div>
+        <div className="display-flex">{renderCountOptions(5)}</div>
+        <div className="mt-32">{renderTextCards}</div>
       </div>
     </div>
   );

@@ -49,6 +49,26 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
     }
   };
 
+  const renderOptions = (
+    version: 'fixation' | 'contrast',
+    selectedVersion: string
+  ) => {
+    return (
+      <>
+        {optionSelections[`${version}`].map((el: any, idx: any) => (
+          <div key={idx} onClick={() => updateOptions(version, el)}>
+            <OptionCard
+              option={version}
+              optionTitle={el}
+              contrast={el}
+              isSelected={selectedVersion === el}
+            />
+          </div>
+        ))}
+      </>
+    );
+  };
+
   return (
     <div className="modal-container">
       <div className="form">
@@ -77,16 +97,7 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
           <div>
             <p className="form__options--subtitle">Fixation: </p>
             <div className="center-vertical">
-              {optionSelections['fixation'].map((el, idx) => (
-                <div key={idx} onClick={() => updateOptions('fixation', el)}>
-                  <OptionCard
-                    option="fixation"
-                    optionTitle={el}
-                    fixation={el}
-                    isSelected={formFixation === el}
-                  />
-                </div>
-              ))}
+              {renderOptions('fixation', formFixation)}
             </div>
             {errors.fixation && (
               <div className="form__error mt-16">{errors.fixation.message}</div>
@@ -96,16 +107,7 @@ export const Form: FC<FormProps> = ({ id, onClose }) => {
           <div>
             <p className="form__options--subtitle">Contrast: </p>
             <div className="center-vertical">
-              {optionSelections['contrast'].map((el, idx) => (
-                <div key={idx} onClick={() => updateOptions('contrast', el)}>
-                  <OptionCard
-                    option="contrast"
-                    optionTitle={el}
-                    contrast={el}
-                    isSelected={formContrast === el}
-                  />
-                </div>
-              ))}
+              {renderOptions('contrast', formContrast)}
             </div>
           </div>
 

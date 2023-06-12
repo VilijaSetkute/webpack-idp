@@ -42,22 +42,24 @@ export const RandomTextCard: FC<JokeProp> = ({
     setBionicList((prevData) => [...prevData, data]);
   };
 
+  const renderJokeLines = (item: Joke) => {
+    return item.joke.map((joke) => (
+      <Output
+        key={joke}
+        selectedOptions={{
+          fixation: 'standard',
+          contrast: 'standard',
+          fontSize: 16,
+          text: [joke],
+        }}
+        textLength="full"
+      />
+    ));
+  };
+
   return (
     <div className="random-card">
-      <div className="random-card--text">
-        {item.joke.map((joke) => (
-          <Output
-            key={joke}
-            selectedOptions={{
-              fixation: 'standard',
-              contrast: 'standard',
-              fontSize: 16,
-              text: [joke],
-            }}
-            textLength="full"
-          />
-        ))}
-      </div>
+      <div className="random-card--text">{renderJokeLines(item)}</div>
       <div className="random-card--control">
         {item.added ? (
           <FontAwesomeIcon className="icon-check" icon={faCheck} size="xl" />

@@ -17,6 +17,20 @@ export const ReviewForm: FC<ReviewFormProps> = ({ id, onEdit, onClose }) => {
   const { filteredList } = useContext(DataContext);
   const editItem = filteredList.filter((bionic) => bionic.id === id);
 
+  const renderChips = (
+    <>
+      {!!editItem[0].fixation && (
+        <Chip text={`Fixation ${editItem[0].fixation}`} />
+      )}
+      {!!editItem[0].contrast && (
+        <Chip text={`Contrast ${editItem[0].contrast}`} />
+      )}
+      {editItem[0].fontSize !== 14 && (
+        <Chip text={`Font size ${editItem[0].fontSize}`} />
+      )}
+    </>
+  );
+
   return (
     <div className="modal-container">
       <div className="review">
@@ -27,17 +41,7 @@ export const ReviewForm: FC<ReviewFormProps> = ({ id, onEdit, onClose }) => {
           onClick={() => onClose(false)}
         />
         <div className="review-header">
-          <div className="selection-spacing">
-            {!!editItem[0].fixation && (
-              <Chip text={`Fixation ${editItem[0].fixation}`} />
-            )}
-            {!!editItem[0].contrast && (
-              <Chip text={`Contrast ${editItem[0].contrast}`} />
-            )}
-            {editItem[0].fontSize !== 14 && (
-              <Chip text={`Font size ${editItem[0].fontSize}`} />
-            )}
-          </div>
+          <div className="selection-spacing">{renderChips}</div>
           <div>
             <Button
               text="Edit"

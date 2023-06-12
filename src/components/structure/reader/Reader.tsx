@@ -10,6 +10,7 @@ import { autoResizeTextarea } from '../../../utils/functions/autoResizeTextarea'
 import { Dropdown } from '../../reusable/dropdown';
 import { getDropdownOptions } from '../../../utils/functions/getDropdownOptions';
 import { JokeForm } from '../../modals/jokeForm';
+import { introText } from '../../../utils/constants/defaults';
 
 export const Reader = () => {
   const [showFormModal, setShowFormModal] = useState<boolean>(false);
@@ -35,16 +36,71 @@ export const Reader = () => {
     setShowReviewModal(false);
   };
 
+  const renderFilterOptions = (
+    <>
+      <div>Filter by:</div>
+      <Dropdown
+        type="fixation"
+        options={getDropdownOptions(bionicList, 'fixation')}
+      />
+      <Dropdown
+        type="contrast"
+        options={getDropdownOptions(bionicList, 'contrast')}
+      />
+    </>
+  );
+
+  const renderCardBlock = (
+    <>
+      {!!bionicList.length ? (
+        <div>
+          <h3 className="reader--subtitle">Saved bionic reading</h3>
+          <div className="reader--filters">{renderFilterOptions}</div>
+          {!!filteredList.length ? (
+            filteredList.map((el) => (
+              <ReaderCard
+                key={el.id}
+                listItem={el}
+                onSelect={setFormId}
+                onOpenEdit={setShowFormModal}
+                onOpenReview={setShowReviewModal}
+              />
+            ))
+          ) : (
+            <div className="reader--empty">No filter results</div>
+          )}
+        </div>
+      ) : (
+        <div className="reader--empty">No items created</div>
+      )}
+    </>
+  );
+
+  const renderModals = (
+    <>
+      {showFormModal && (
+        <Dialog onClose={onClose}>
+          <Form onClose={onClose} id={formId} />
+        </Dialog>
+      )}
+      {showReviewModal && (
+        <Dialog onClose={onClose}>
+          <ReviewForm onClose={onClose} onEdit={onEdit} id={formId} />
+        </Dialog>
+      )}
+      {showJokeModal && (
+        <Dialog onClose={onClose}>
+          <JokeForm onClose={onClose} />
+        </Dialog>
+      )}
+    </>
+  );
+
   return (
     <div className="reader-container">
       <div className="reader-intro">
         <h3>What is bionic reading</h3>
-        <div>
-          In a digital world dominated by shallow forms of reading, Bionic
-          reading aims to encourage a more in-depth reading and understanding of
-          written content by facilitating the reading process by guiding the
-          eyes through text with artificial fixation points.
-        </div>
+        <div>{introText}</div>
         <Button
           text="Try me out"
           variant="primary"
@@ -64,52 +120,8 @@ export const Reader = () => {
             onClick={() => setJokeModal(true)}
           />
         </div>
-        {!!bionicList.length ? (
-          <div>
-            <h3 className="reader--subtitle">Saved bionic reading</h3>
-            <div className="reader--filters">
-              <div>Filter by:</div>
-              <Dropdown
-                type="fixation"
-                options={getDropdownOptions(bionicList, 'fixation')}
-              />
-              <Dropdown
-                type="contrast"
-                options={getDropdownOptions(bionicList, 'contrast')}
-              />
-            </div>
-            {!!filteredList.length ? (
-              filteredList.map((el) => (
-                <ReaderCard
-                  key={el.id}
-                  listItem={el}
-                  onSelect={setFormId}
-                  onOpenEdit={setShowFormModal}
-                  onOpenReview={setShowReviewModal}
-                />
-              ))
-            ) : (
-              <div className="reader--empty">No filter results</div>
-            )}
-          </div>
-        ) : (
-          <div className="reader--empty">No items created</div>
-        )}
-        {showFormModal && (
-          <Dialog onClose={onClose}>
-            <Form onClose={onClose} id={formId} />
-          </Dialog>
-        )}
-        {showReviewModal && (
-          <Dialog onClose={onClose}>
-            <ReviewForm id={formId} onEdit={onEdit} onClose={onClose} />
-          </Dialog>
-        )}
-        {showJokeModal && (
-          <Dialog onClose={onClose}>
-            <JokeForm onClose={onClose} />
-          </Dialog>
-        )}
+        {renderCardBlock}
+        {renderModals}
       </div>
     </div>
   );
