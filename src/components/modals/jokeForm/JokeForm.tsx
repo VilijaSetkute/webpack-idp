@@ -100,7 +100,7 @@ export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
         />
 
         {/* <div> */}
-        <div className="jokes-review--instruction">
+        <div className="jokes-review__instruction">
           Choose how many jokes to generate
         </div>
         <div className="display-flex">{renderCountOptions(5)}</div>
