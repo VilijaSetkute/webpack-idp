@@ -1,11 +1,3 @@
-export interface CardProps {
-  option?: string;
-  optionTitle: string;
-  fixation?: string;
-  contrast?: string;
-  isSelected: boolean;
-}
-
 export interface BionicItem {
   id: string;
   date: string;

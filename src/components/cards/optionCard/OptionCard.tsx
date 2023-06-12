@@ -1,6 +1,12 @@
 import { FC } from 'react';
 import './styles.scss';
-import { CardProps } from '../../../utils/models/model';
+interface CardProps {
+  option?: string;
+  optionTitle: string;
+  fixation?: string;
+  contrast?: string;
+  isSelected: boolean;
+}
 
 export const OptionCard: FC<CardProps> = ({
   option,
