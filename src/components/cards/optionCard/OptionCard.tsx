@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import './styles.scss';
 import { CardProps } from '../../../utils/models/model';
-import { exampleWord } from '../../../utils/constants/defaults';
 
 export const OptionCard: FC<CardProps> = ({
   option,
@@ -11,24 +10,12 @@ export const OptionCard: FC<CardProps> = ({
   isSelected,
 }) => {
   const evaluateFixation = (number: any) => {
+    const exampleWord = 'Bionic';
     const splitList = [exampleWord.slice(0, number), exampleWord.slice(number)];
     return (
       <>
         <span style={{ fontWeight: 700 }}>{splitList[0]}</span>
         <span>{splitList[1]}</span>
-      </>
-    );
-  };
-
-  const formatContrastCard = (contrast: any) => {
-    return (
-      <>
-        <span
-          style={{ fontWeight: 700, opacity: contrast === 'low' ? 0.7 : 1 }}
-        >
-          Bio
-        </span>
-        <span style={{ opacity: contrast !== 'standard' ? 0.7 : 1 }}>nic</span>
       </>
     );
   };
@@ -46,6 +33,19 @@ export const OptionCard: FC<CardProps> = ({
       default:
         evaluateFixation(0);
     }
+  };
+
+  const formatContrastCard = (contrast: any) => {
+    return (
+      <>
+        <span
+          style={{ fontWeight: 700, opacity: contrast === 'low' ? 0.7 : 1 }}
+        >
+          Bio
+        </span>
+        <span style={{ opacity: contrast !== 'standard' ? 0.7 : 1 }}>nic</span>
+      </>
+    );
   };
 
   return (
