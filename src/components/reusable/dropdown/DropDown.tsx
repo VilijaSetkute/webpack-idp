@@ -32,7 +32,7 @@ export const Dropdown: FC<DropdownProps> = ({ type, options }) => {
   return (
     <div className="dropdown">
       <div
-        className="dropdown--button"
+        className="dropdown__button"
         onClick={() => setIsexpanded(!isExpanded)}
       >
         {selection}{' '}
@@ -47,11 +47,11 @@ export const Dropdown: FC<DropdownProps> = ({ type, options }) => {
       </div>
       {isExpanded && (
         <Dialog onClose={() => setIsexpanded(false)}>
-          <div className="dropdown--options mt-4">
+          <div className="dropdown__options mt-4">
             {options.map((opt: string) => (
               <div
                 key={opt}
-                className={`dropdown--options--option ${
+                className={`dropdown__options--option ${
                   selection.toLowerCase().includes(opt) && 'selected'
                 }`}
                 onClick={() => dropdownSelect(opt)}

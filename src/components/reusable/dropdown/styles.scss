@@ -12,7 +12,7 @@
   margin-left: 8px;
 }
 
-.dropdown--button {
+.dropdown__button {
   @extend %dropdownBasic;
   padding: 8px 12px;
   display: flex;
@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-.dropdown--options {
+.dropdown__options {
   @extend %dropdownBasic;
   position: absolute;
   background-color: $white;
@@ -30,7 +30,7 @@
   z-index: 1;
 }
 
-.dropdown--options--option {
+.dropdown__options--option {
   padding: 8px 12px;
 
   &:hover,
