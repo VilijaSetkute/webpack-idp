@@ -91,7 +91,7 @@ export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
 
   return (
     <div className="modal-container">
-      <div className="review">
+      <div className="jokes-review">
         <FontAwesomeIcon
           icon={faXmark}
           size="xl"
@@ -99,7 +99,8 @@ export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
           onClick={() => onClose(false)}
         />
 
-        <div className="reader-card--date">
+        {/* <div> */}
+        <div className="jokes-review--instruction">
           Choose how many jokes to generate
         </div>
         <div className="display-flex">{renderCountOptions(5)}</div>
