@@ -18,18 +18,22 @@ export const Output: FC<Output> = ({
   const fullArray = selectedOptions.text.map((parapgraph) =>
     stringToArray(parapgraph)
   );
-  const maxWords = maxChars || selectedOptions.text[0].length;
-  let wordCount = 0;
-  const truncatedArray = [];
 
-  for (const word of fullArray[0]) {
-    if (wordCount + word.length <= maxWords) {
-      truncatedArray.push(word);
-      wordCount += word.length;
+  const truncatedArray = () => {
+    const maxWords = maxChars || selectedOptions.text[0].length;
+    let wordCount = 0;
+    const truncated = [];
+
+    for (const word of fullArray[0]) {
+      if (wordCount + word.length <= maxWords) {
+        truncated.push(word);
+        wordCount += word.length;
+      }
     }
-  }
+    return [truncated];
+  };
 
-  const wordArray = textLength === 'full' ? fullArray : [truncatedArray];
+  const wordArray = textLength === 'full' ? fullArray : truncatedArray();
 
   const renderOutput = () =>
     wordArray.map((par: any) => (
