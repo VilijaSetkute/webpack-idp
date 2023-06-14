@@ -19,17 +19,19 @@ export const Output: FC<Output> = ({
   );
 
   const truncatedArray = () => {
-    const maxWords = maxChars || selectedOptions.text[0].length;
-    let wordCount = 0;
-    const truncated = [];
-
-    for (const word of fullArray[0]) {
-      if (wordCount + word.length <= maxWords) {
-        truncated.push(word);
-        wordCount += word.length;
-      }
+    if (maxChars) {
+      const truncated = fullArray[0].slice(
+        0,
+        fullArray[0].reduce((acc, cur) => {
+          if (acc + cur.length <= maxChars) {
+            acc += cur.length;
+          }
+          return acc;
+        }, 0)
+      );
+      return [truncated];
     }
-    return [truncated];
+    return [];
   };
 
   const wordArray = textLength === 'full' ? fullArray : truncatedArray();
