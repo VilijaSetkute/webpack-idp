@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
-import { getJokes } from '../../../utils/functions/getJokes';
+import { getJokes } from '../../../utils/services/getJokes';
 import { OptionCard } from '../../cards/optionCard';
 import {
   Joke,
