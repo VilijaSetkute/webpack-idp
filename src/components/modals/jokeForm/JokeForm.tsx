@@ -17,16 +17,17 @@ interface ReviewFormProps {
   onClose: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+type Data = Awaited<ReturnType<typeof getJokes>>;
+
 export const JokeForm: FC<ReviewFormProps> = ({ onClose }) => {
   const [amount, setAmount] = useState<number>(0);
   const [jokeList, setJokeList] = useState<Joke[]>([]);
 
   const generateJokes = async (num: number) => {
     setAmount(num);
-    const jokes = await getJokes(num);
+    const jokes: Data = await getJokes<number>(num);
     if (num > 1) {
       const jokeObj = jokes as MultiJoke;
-      console.log(jokeObj.jokes[0]);
       const transformedJokes: Joke[] = jokeObj.jokes.map((joke: JokesApi) => {
         const jokeText =
           joke.type === 'single' ? [joke.joke] : [joke.setup, joke.delivery];
