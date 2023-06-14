@@ -18,8 +18,6 @@ export const getJokes = async <T extends number>(
 ): Promise<SingleJoke | MultiJoke> => {
   const url = `${apiUrl}${amount}`;
 
-  console.log('check this');
-
   const res = await fetch(url, options);
   const json = await res.json();
   if (amount === 1) {
